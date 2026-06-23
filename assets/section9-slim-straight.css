@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Permanent+Marker&display=swap');
+
+.lp-section9 {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--lp9-bg, #e6dfcf);
+  font-family: 'Montserrat', 'Jost', sans-serif;
+  color: #000;
+}
+
+.lp-section9__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  line-height: 0;
+}
+
+.lp-section9__bg-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: var(--lp9-bg-fit, contain);
+  object-position: center center;
+}
+
+.lp-section9__bg-img--mobile {
+  display: none;
+}
+
+.lp-section9__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--lp9-max-width, 1200px);
+  margin: 0 auto;
+  padding: var(--lp9-padding-top, 48px) 40px var(--lp9-padding-bottom, 56px);
+  min-height: var(--lp9-min-height, 560px);
+}
+
+.lp-section9__heading {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.lp-section9__heading-img {
+  display: block;
+  width: auto;
+  max-width: min(640px, 92vw);
+  height: auto;
+  margin: 0 auto;
+}
+
+.lp-section9__title {
+  margin: 0;
+  font-family: 'Permanent Marker', cursive;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.1;
+  color: var(--lp9-accent, #a33b20);
+  transform: rotate(-1deg);
+}
+
+.lp-section9__row {
+  display: flex;
+  align-items: center;
+  gap: var(--lp9-column-gap, 24px);
+}
+
+.lp-section9__left {
+  flex: 0 0 var(--lp9-left-width, 48%);
+  line-height: 0;
+}
+
+.lp-section9__jeans-img {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  object-fit: contain;
+}
+
+.lp-section9__right {
+  position: relative;
+  min-height: var(--lp9-circle-size, 360px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.lp-section9__circle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--lp9-circle-color, #a33b20);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+  left: 0px;
+  height: 200px;
+  width: 200px;
+  top: 35%;
+  display: block !important;
+}
+
+.lp-section9__content {
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+  padding: 20px 16px;
+  right: 60px;
+
+}
+
+.lp-section9__text {
+  margin: 0 0 60px;
+  font-size: clamp(13px, 1.1vw, 16px);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.lp-section9__text strong {
+  font-weight: 700;
+}
+
+.lp-section9__text p {
+  margin: 0;
+}
+
+.lp-section9__btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  font-family: 'Montserrat', 'Jost', sans-serif;
+  font-size: clamp(11px, 0.95vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 18px 40px;
+  transition: opacity 0.2s;
+}
+
+.lp-section9__btn:hover {
+  opacity: 0.85;
+  color: #fff;
+}
+
+@media screen and (max-width: 989px) {
+  .lp-section9__row {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .lp-section9__left {
+    flex: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  .lp-section9__jeans-img {
+    margin: 0 auto;
+    max-width: 400px;
+  }
+
+  .lp-section9__right {
+    width: 100%;
+    min-height: 280px;
+    justify-content: center;
+    padding-left: 0;
+  }
+
+  .lp-section9__content {
+    max-width: 300px;
+    text-align: left;
+  }
+
+  .lp-section9__circle{
+    left: 50%;
+  }
+
+  .lp-section9__content{
+    left: 80px;
+    right: 0;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .lp-section9__inner {
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: auto;
+  }
+
+  .lp-section9__bg-img--desktop {
+    display: none;
+  }
+
+  .lp-section9__bg-img--mobile {
+    display: block;
+  }
+
+  .lp-section9__btn {
+    padding: 16px 32px;
+  }
+
+    .lp-section9__content {
+      left: 70px;
+      right: 0;
+  }
+
+  .lp-section9__content {
+    max-width: 250px;
+    text-align: left;
+}
+
+.lp-section9__title{
+  font-size: 22px !important;
+}
+
+.lp-section9__circle{
+  top: 27%;
+  height: 150px;
+  width: 150px;
+}
+}
