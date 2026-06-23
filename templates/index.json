@@ -87,31 +87,6 @@
         "padding_bottom_mobile": 40
       }
     },
-    "landing_section_3": {
-      "type": "Section3",
-      "disabled": true,
-      "settings": {
-        "intro_text": "<p><strong>Born in the late 1800s,</strong> the 5-pocket jean was built for miners who needed something tougher than anything else they owned.</p>",
-        "button_text": "SHOP NOW",
-        "button_link": "",
-        "max_width": 1440,
-        "text_top": 42,
-        "text_left": 60,
-        "text_width": 280,
-        "button_gap": 20,
-        "text_top_tablet": 42,
-        "text_left_tablet": 55,
-        "text_width_tablet": 220,
-        "text_top_mobile": 44,
-        "text_left_mobile": 50,
-        "text_width_mobile": 260,
-        "background_color": "#e5e0d8",
-        "margin_top_desktop": 0,
-        "margin_bottom_desktop": 0,
-        "margin_top_mobile": 0,
-        "margin_bottom_mobile": 0
-      }
-    },
     "landing_section_5": {
       "type": "Section5",
       "settings": {
@@ -208,7 +183,6 @@
   "order": [
     "landing_section_1",
     "landing_section_2",
-    "landing_section_3",
     "landing_section_5",
     "section6_8NCAWf",
     "section6_Mm78Hn",
