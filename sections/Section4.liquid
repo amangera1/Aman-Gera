@@ -1,0 +1,448 @@
+{{ 'section4-selvedge.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .lp-section4 {
+    margin-top: {{ section.settings.margin_top_desktop }}px;
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    --lp4-bg: {{ section.settings.background_color }};
+    --lp4-accent: {{ section.settings.accent_color }};
+    --lp4-max-width: {{ section.settings.max_width }}px;
+    --lp4-left-width: {{ section.settings.left_width }}%;
+    --lp4-loom-width: {{ section.settings.loom_width }}%;
+    --lp4-loom-right: {{ section.settings.loom_offset_right }}%;
+    --lp4-loom-top: {{ section.settings.loom_offset_top }}px;
+    --lp4-left-top: {{ section.settings.left_offset_top }}px;
+    --lp4-heading-left: {{ section.settings.heading_left }}%;
+    --lp4-heading-top: {{ section.settings.heading_top }}px;
+    --lp4-tag-left: {{ section.settings.tag_offset_left }}px;
+    --lp4-tag-bottom: {{ section.settings.tag_offset_bottom }}px;
+    --lp4-stage-height: {{ section.settings.stage_height }}px;
+  }
+
+  @media screen and (max-width: 989px) {
+    #shopify-section-{{ section.id }} .lp-section4 {
+      margin-top: {{ section.settings.margin_top_mobile }}px;
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<section
+  class="lp-section4{% if section.settings.full_section_image != blank %} lp-section4--full{% endif %}"
+  id="lp-section4-{{ section.id }}"
+>
+  <div class="lp-section4__inner">
+    {% if section.settings.full_section_image != blank %}
+      {{
+        section.settings.full_section_image
+        | image_url: width: 2400
+        | image_tag: class: 'lp-section4__full-img', loading: 'lazy', alt: 'Selvedge denim'
+      }}
+    {% else %}
+      <div class="lp-section4__stage">
+        {% if section.settings.top_heading_image != blank or section.settings.top_heading != blank %}
+          <div class="lp-section4__top">
+            {% if section.settings.top_heading_image != blank %}
+              {{
+                section.settings.top_heading_image
+                | image_url: width: 700
+                | image_tag: class: 'lp-section4__top-heading-img', loading: 'lazy', alt: section.settings.top_heading
+              }}
+            {% elsif section.settings.top_heading != blank %}
+              <p class="lp-section4__top-heading">{{ section.settings.top_heading }}</p>
+            {% endif %}
+
+            {% if section.settings.show_arrow %}
+              <svg class="lp-section4__top-arrow" viewBox="0 0 140 65" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 4 C45 52, 75 10, 134 46" stroke="currentColor" stroke-width="2" fill="none"/>
+                <path d="M126 40 L134 46 L127 52" stroke="currentColor" stroke-width="2" fill="none"/>
+              </svg>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        <div class="lp-section4__left-col">
+          <div class="lp-section4__panel">
+            <div class="lp-section4__panel-shape">
+              {% if section.settings.left_image != blank %}
+                {{
+                  section.settings.left_image
+                  | image_url: width: 900
+                  | image_tag: class: 'lp-section4__left-img', loading: 'lazy', alt: 'Selvedge denim'
+                }}
+              {% else %}
+                <div class="lp-section4__left-img" style="background:#1a2744; min-height:380px;"></div>
+              {% endif %}
+
+              {% if section.settings.show_left_text_overlay %}
+                <div class="lp-section4__left-overlay">
+                  {% if section.settings.selvedge_heading != blank %}
+                    <h3>{{ section.settings.selvedge_heading }}</h3>
+                  {% endif %}
+
+                  {% if section.settings.selvedge_points != blank %}
+                    <ul>
+                      {% assign points = section.settings.selvedge_points | split: '|' %}
+                      {% for point in points %}
+                        <li>{{ point | strip }}</li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+
+                  {% if section.settings.selvedge_footer != blank %}
+                    <p class="lp-section4__left-footer">{{ section.settings.selvedge_footer }}</p>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+
+            {% if section.settings.tag_image != blank %}
+              <div class="lp-section4__tag">
+                {{
+                  section.settings.tag_image
+                  | image_url: width: 500
+                  | image_tag: class: 'lp-section4__tag-img', loading: 'lazy', alt: section.settings.selvedge_tag
+                }}
+              </div>
+            {% elsif section.settings.selvedge_tag != blank and section.settings.show_left_text_overlay %}
+              <div class="lp-section4__tag">
+                <span class="lp-section4__tag-text">{{ section.settings.selvedge_tag }}</span>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+
+        {% if section.settings.right_image != blank %}
+          <div class="lp-section4__loom">
+            {{
+              section.settings.right_image
+              | image_url: width: 1400
+              | image_tag: class: 'lp-section4__right-img', loading: 'lazy', alt: 'Shuttle loom'
+            }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing Page Section 4",
+  "tag": "section",
+  "class": "section-landing-page-4",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "full_section_image",
+      "label": "Full section image (optional)",
+      "info": "Upload complete design for pixel-perfect match. Hides split layout when set."
+    },
+    {
+      "type": "header",
+      "content": "Split layout images"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left denim panel image"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right loom image",
+      "info": "Transparent PNG recommended"
+    },
+    {
+      "type": "header",
+      "content": "Top heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "top_heading_image",
+      "label": "Top heading image",
+      "info": "Overrides text if uploaded"
+    },
+    {
+      "type": "text",
+      "id": "top_heading",
+      "label": "Top heading text",
+      "default": "BUILT ON VINTAGE TRADITIONAL SHUTTLE LOOMS"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrow",
+      "label": "Show arrow",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Left panel text"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_left_text_overlay",
+      "label": "Show text on denim panel",
+      "default": true,
+      "info": "Off if left image already includes text"
+    },
+    {
+      "type": "text",
+      "id": "selvedge_heading",
+      "label": "Panel heading",
+      "default": "WHAT MAKES SELVEDGE DIFFERENT?"
+    },
+    {
+      "type": "textarea",
+      "id": "selvedge_points",
+      "label": "Bullet lines (separate with |)",
+      "default": "Shuttle Loom Woven|Slower process. Stronger fabric. No shortcuts.|Self-Finished Edges. No fraying. No weak points. Just a clean, durable finish.|15oz Weight. Heavier denim that holds structure and lasts longer.|Built for Patina. Every crease, fade, and mark is earned over time."
+    },
+    {
+      "type": "text",
+      "id": "selvedge_footer",
+      "label": "Footer line",
+      "default": "THIS ISN'T DENIM THAT STAYS THE SAME."
+    },
+    {
+      "type": "image_picker",
+      "id": "tag_image",
+      "label": "Bottom tag image",
+      "info": "Brush-stroke tag — recommended for exact match"
+    },
+    {
+      "type": "text",
+      "id": "selvedge_tag",
+      "label": "Bottom tag text",
+      "default": "IT'S DENIM THAT BECOMES YOURS."
+    },
+    {
+      "type": "header",
+      "content": "Layout - Desktop"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Section max width",
+      "min": 960,
+      "max": 1320,
+      "step": 20,
+      "unit": "px",
+      "default": 1080
+    },
+    {
+      "type": "range",
+      "id": "left_width",
+      "label": "Left panel width",
+      "min": 36,
+      "max": 52,
+      "step": 1,
+      "unit": "%",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "left_offset_top",
+      "label": "Left panel from top",
+      "min": 24,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "loom_width",
+      "label": "Loom image width",
+      "min": 50,
+      "max": 76,
+      "step": 1,
+      "unit": "%",
+      "default": 66
+    },
+    {
+      "type": "range",
+      "id": "loom_offset_right",
+      "label": "Loom from right",
+      "min": -4,
+      "max": 12,
+      "step": 1,
+      "unit": "%",
+      "default": -1
+    },
+    {
+      "type": "range",
+      "id": "loom_offset_top",
+      "label": "Loom from top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "heading_left",
+      "label": "Heading from left",
+      "min": 24,
+      "max": 50,
+      "step": 1,
+      "unit": "%",
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "heading_top",
+      "label": "Heading from top",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "stage_height",
+      "label": "Section min height",
+      "min": 400,
+      "max": 600,
+      "step": 8,
+      "unit": "px",
+      "default": 504
+    },
+    {
+      "type": "range",
+      "id": "tag_offset_left",
+      "label": "Tag offset left",
+      "min": -20,
+      "max": 20,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "tag_offset_bottom",
+      "label": "Tag offset bottom",
+      "min": -32,
+      "max": 8,
+      "step": 4,
+      "unit": "px",
+      "default": -16
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#e5e0d8"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#a33b20"
+    },
+    {
+      "type": "header",
+      "content": "Spacing - Desktop"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "label": "Margin top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Spacing - Mobile"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Margin top",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    }
+  ],
+  "presets": [
+    {
+      "name": "Landing Page Section 4"
+    }
+  ]
+}
+{% endschema %}

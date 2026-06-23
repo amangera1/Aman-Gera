@@ -1,0 +1,224 @@
+/* Blue Blood — True Straight */
+
+.bb-true-straight {
+  padding-bottom: 80px;
+}
+
+.bb-true-straight__nav {
+  display: flex;
+  justify-content: center;
+  gap: clamp(16px, 3vw, 48px);
+  padding: 30px 0 20px;
+  flex-wrap: wrap;
+}
+
+.bb-true-straight__nav a {
+  font-size: clamp(10px, 0.9vw, 13px);
+  font-weight: 700;
+  color: var(--bb-black);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.bb-true-straight__nav a:hover,
+.bb-true-straight__nav a.is-active {
+  color: var(--bb-accent);
+}
+
+.bb-true-straight__title {
+  text-align: center;
+  font-size: clamp(28px, 3.5vw, 48px);
+  margin: 10px 0 30px;
+}
+
+.bb-true-straight__showcase {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 0.6fr;
+  gap: 30px;
+  align-items: start;
+  position: relative;
+}
+
+.bb-true-straight__product-wrap {
+  position: relative;
+}
+
+.bb-true-straight__product-wrap img {
+  width: 100%;
+  max-width: 480px;
+  display: block;
+  margin: 0 auto;
+}
+
+.bb-true-straight__callout--fit {
+  top: 35%;
+  right: -10%;
+}
+
+.bb-true-straight__callout--rise {
+  top: 18%;
+  left: 5%;
+}
+
+.bb-true-straight__content {
+  padding-top: 40px;
+}
+
+.bb-true-straight__intro {
+  font-size: clamp(14px, 1.2vw, 17px);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.bb-true-straight__intro strong {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.bb-true-straight__detail-img {
+  transform: rotate(6deg);
+  margin-top: 20px;
+}
+
+.bb-true-straight__detail-img img {
+  width: 100%;
+  max-width: 220px;
+  display: block;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.bb-true-straight__loom-section {
+  margin-top: 60px;
+  position: relative;
+}
+
+.bb-true-straight__loom-heading {
+  font-size: clamp(18px, 2vw, 28px);
+  max-width: 500px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 3;
+}
+
+.bb-true-straight__loom-arrow {
+  width: 120px;
+  height: auto;
+  margin-left: 40px;
+  margin-top: -10px;
+  display: block;
+  color: var(--bb-accent);
+}
+
+.bb-true-straight__selvedge-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: end;
+  margin-top: -40px;
+}
+
+.bb-true-straight__selvedge-box {
+  background-color: #1a2744;
+  background-size: cover;
+  background-position: center;
+  padding: 40px 36px 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.bb-true-straight__selvedge-box h3 {
+  color: var(--bb-white);
+  font-size: clamp(16px, 1.6vw, 22px);
+  font-weight: 800;
+  margin: 0 0 24px;
+  letter-spacing: 0.04em;
+}
+
+.bb-true-straight__selvedge-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+}
+
+.bb-true-straight__selvedge-box li {
+  color: var(--bb-white);
+  font-size: clamp(12px, 1vw, 15px);
+  line-height: 1.7;
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 6px;
+}
+
+.bb-true-straight__selvedge-box li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--bb-white);
+}
+
+.bb-true-straight__selvedge-footer {
+  color: var(--bb-white);
+  font-size: clamp(12px, 1vw, 14px);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.bb-true-straight__selvedge-tag {
+  position: absolute;
+  bottom: -16px;
+  left: 20px;
+  z-index: 4;
+}
+
+.bb-true-straight__selvedge-tag .bb-brush-stroke span {
+  font-family: var(--bb-font-brush);
+  font-size: clamp(12px, 1.1vw, 16px);
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+.bb-true-straight__loom-img {
+  position: relative;
+  z-index: 3;
+  margin-left: -60px;
+  margin-bottom: 20px;
+}
+
+.bb-true-straight__loom-img img {
+  width: 100%;
+  max-width: 520px;
+  display: block;
+}
+
+@media screen and (max-width: 989px) {
+  .bb-true-straight__showcase {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .bb-true-straight__callout--fit {
+    right: 0;
+  }
+
+  .bb-true-straight__detail-img {
+    transform: none;
+    text-align: center;
+  }
+
+  .bb-true-straight__detail-img img {
+    margin: 0 auto;
+  }
+
+  .bb-true-straight__selvedge-wrap {
+    grid-template-columns: 1fr;
+    margin-top: 20px;
+  }
+
+  .bb-true-straight__loom-img {
+    margin-left: 0;
+    order: -1;
+  }
+}

@@ -1,0 +1,36 @@
+.lp-section6 {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--lp6-bg, #e5e0d8);
+}
+
+.lp-section6__frame {
+  position: relative;
+  width: 100%;
+  max-width: var(--lp6-max-width, 1440px);
+  margin: 0 auto;
+  line-height: 0;
+}
+
+.lp-section6__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center center;
+}
+
+.lp-section6__img--mobile {
+  display: none;
+}
+
+@media screen and (max-width: 749px) {
+  .lp-section6__img--desktop {
+    display: none;
+  }
+
+  .lp-section6__img--mobile {
+    display: block;
+  }
+}

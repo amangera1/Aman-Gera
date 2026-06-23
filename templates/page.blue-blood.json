@@ -1,98 +1,88 @@
 {
   "sections": {
-    "landing_section_1": {
-      "type": "Section1",
-      "settings": {
-        "body_text": "This is not denim made for first impressions. At 15oz, it holds its shape and breaks in over time - not overnight. The kind of denim that doesn't give up early. The kind that gets better the more you live in it.",
-        "background_color": "#e5e0d8",
-        "margin_top_desktop": 0,
-        "margin_bottom_desktop": 0,
-        "padding_top_desktop": 48,
-        "padding_bottom_desktop": 48,
-        "column_gap": 32,
-        "line_spacing": 4,
-        "subtitle_spacing": 20,
-        "badge_spacing": 16,
-        "body_spacing": 28,
-        "margin_top_mobile": 0,
-        "margin_bottom_mobile": 0,
-        "padding_top_mobile": 32,
-        "padding_bottom_mobile": 32
-      }
-    },
-    "landing_section_2": {
-      "type": "Section2",
+    "blue_blood_new_launch": {
+      "type": "blue-blood-new-launch",
       "blocks": {
-        "card_1": {
-          "type": "product_card",
+        "product_1": {
+          "type": "product",
           "settings": {
             "label": "5 POCKET SLIM STRAIGHT"
           }
         },
-        "card_2": {
-          "type": "product_card",
+        "product_2": {
+          "type": "product",
           "settings": {
             "label": "5 POCKET TRUE STRAIGHT"
           }
         },
-        "card_3": {
-          "type": "product_card",
+        "product_3": {
+          "type": "product",
           "settings": {
             "label": "DOUBLE KNEE CARPENTER"
           }
         }
       },
       "block_order": [
-        "card_1",
-        "card_2",
-        "card_3"
+        "product_1",
+        "product_2",
+        "product_3"
       ],
       "settings": {
-        "heading": "BUILT WITH THE INTENT TO LAST",
-        "visible_cards": 3,
-        "card_width": 220,
-        "card_width_mobile": 200,
-        "card_gap": 24,
-        "heading_gap": 40,
-        "show_deco_triangle": true,
-        "background_color": "#e5e0d8",
-        "accent_color": "#a33b20",
+        "title": "NEW LAUNCH",
+        "subtitle": "15oz HEAVYDUTY BLUE BLOOD 2.0 SELVEDGE DENIM",
+        "badge_small": "Woven slower. Built tighter.",
+        "badge_large": "MADE TO LAST LONGER",
+        "body_text": "This is not denim made for first impressions. At 15oz, it holds its shape and breaks in over time - not overnight. The kind of denim that doesn't give up early. The kind that gets better the more you live in it.",
+        "tag_text": "15oz SELVEDGE DENIM",
+        "grid_heading": "BUILT WITH THE INTENT TO LAST",
         "margin_top_desktop": 0,
         "margin_bottom_desktop": 0,
-        "padding_top_desktop": 48,
-        "padding_bottom_desktop": 48,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 60,
+        "hero_gap": 40,
+        "hero_padding_top": 40,
+        "grid_section_margin_top": 120,
+        "grid_gap": 30,
         "margin_top_mobile": 0,
         "margin_bottom_mobile": 0,
-        "padding_top_mobile": 40,
-        "padding_bottom_mobile": 40
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40,
+        "grid_section_margin_top_mobile": 60,
+        "background_color": "#e5e0d8",
+        "accent_color": "#a33b20"
       }
     },
-    "landing_section_3": {
-      "type": "Section3",
+    "blue_blood_true_straight": {
+      "type": "blue-blood-true-straight",
       "settings": {
+        "show_nav": true,
+        "nav_link_1_label": "5 POCKET SLIM STRAIGHT",
+        "nav_link_2_label": "5 POCKET TRUE STRAIGHT",
+        "nav_link_3_label": "DOUBLE KNEE CARPENTER",
+        "nav_active": "2",
+        "title": "BLUE BLOOD 2.0 TRUE STRAIGHT",
+        "callout_1": "STRAIGHT FIT",
+        "callout_2": "MID-RISE",
         "intro_text": "<p><strong>Born in the late 1800s,</strong> the 5-pocket jean was built for miners who needed something tougher than anything else they owned.</p>",
         "button_text": "SHOP NOW",
-        "max_width": 1440,
-        "text_top": 42,
-        "text_left": 60,
-        "text_width": 280,
-        "button_gap": 20,
-        "text_top_tablet": 42,
-        "text_left_tablet": 55,
-        "text_width_tablet": 220,
-        "text_top_mobile": 44,
-        "text_left_mobile": 50,
-        "text_width_mobile": 260,
-        "background_color": "#e5e0d8",
+        "loom_heading": "BUILT ON VINTAGE TRADITIONAL SHUTTLE LOOMS",
+        "selvedge_heading": "WHAT MAKES SELVEDGE DIFFERENT?",
+        "selvedge_points": "Shuttle Loom Woven|Slower process. Stronger fabric. No shortcuts.|Self-Finished Edges. No fraying. No weak points. Just a clean, durable finish.|15oz Weight. Heavier denim that holds structure and lasts longer.|Built for Patina. Every crease, fade, and mark is earned over time.",
+        "selvedge_footer": "THIS ISN'T DENIM THAT STAYS THE SAME.",
+        "selvedge_tag": "IT'S DENIM THAT BECOMES YOURS.",
         "margin_top_desktop": 0,
         "margin_bottom_desktop": 0,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 80,
+        "showcase_gap": 32,
+        "loom_section_margin_top": 60,
         "margin_top_mobile": 0,
-        "margin_bottom_mobile": 0
+        "margin_bottom_mobile": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40,
+        "background_color": "#e5e0d8",
+        "accent_color": "#a33b20"
       }
-    },
-    "landing_section_5": {
-      "type": "Section5",
-      "settings": {}
     },
     "blue_blood_product_styles": {
       "type": "blue-blood-product-styles",
@@ -168,10 +158,8 @@
     }
   },
   "order": [
-    "landing_section_1",
-    "landing_section_2",
-    "landing_section_3",
-    "landing_section_5",
+    "blue_blood_new_launch",
+    "blue_blood_true_straight",
     "blue_blood_product_styles",
     "blue_blood_born_from_work"
   ]

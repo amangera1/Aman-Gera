@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+.lp-section3 {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--lp3-bg, #e5e0d8);
+}
+
+.lp-section3__frame {
+  position: relative;
+  width: 100%;
+  max-width: var(--lp3-max-width, 1440px);
+  margin: 0 auto;
+  line-height: 0;
+}
+
+.lp-section3__bg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center center;
+}
+
+.lp-section3__bg--cover {
+  object-fit: cover;
+  min-height: var(--lp3-min-height, 0px);
+}
+
+.lp-section3__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.lp-section3__content {
+  position: absolute;
+  top: var(--lp3-text-top, 42%);
+  left: var(--lp3-text-left, 60%);
+  transform: translateY(-50%);
+  max-width: var(--lp3-text-width, 280px);
+  width: calc(100% - var(--lp3-text-left, 60%) - 24px);
+  pointer-events: auto;
+}
+
+.lp-section3__text {
+  margin: 0 0 var(--lp3-btn-gap, 20px);
+  font-family: 'Montserrat', 'Jost', sans-serif;
+  font-size: clamp(12px, 1vw, 16px);
+  font-weight: 400;
+  line-height: 1.6;
+  color: #000;
+}
+
+.lp-section3__text strong {
+  font-weight: 700;
+}
+
+.lp-section3__text p {
+  margin: 0;
+}
+
+.lp-section3__btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  font-family: 'Montserrat', 'Jost', sans-serif;
+  font-size: clamp(11px, 0.9vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 23px 48px;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.lp-section3__btn:hover {
+  opacity: 0.85;
+  color: #fff;
+}
+
+@media screen and (min-width: 989px) {
+  .lp-section3__text p {
+    font-size: 19px;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .lp-section3__content {
+    top: var(--lp3-text-top-tablet, 42%);
+    left: var(--lp3-text-left-tablet, 55%);
+    max-width: var(--lp3-text-width-tablet, 220px);
+    width: calc(100% - var(--lp3-text-left-tablet, 55%) - 16px);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .lp-section3__content {
+    top: var(--lp3-text-top-mobile, 44%);
+    left: var(--lp3-text-left-mobile, 50%);
+    transform: translate(-50%, -50%);
+    max-width: min(var(--lp3-text-width-mobile, 260px), 88%);
+    width: max-content;
+    text-align: left;
+  }
+
+  .lp-section3__btn {
+    padding: 18px 28px;
+  }
+
+  .lp-section3__text{
+    padding-right: 20px;
+  }
+  .lp-section3__text p {
+    margin: 0;
+    font-size: 12px;
+}
+}

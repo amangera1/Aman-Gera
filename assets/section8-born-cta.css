@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Permanent+Marker&display=swap');
+
+.lp-section8 {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--lp8-bg, #e6dfcf);
+  font-family: 'Montserrat', 'Jost', sans-serif;
+  color: #000;
+}
+
+.lp-section8__inner {
+  max-width: var(--lp8-max-width, 1200px);
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.lp-section8__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 50%) minmax(0, 50%);
+  column-gap: var(--lp8-column-gap, 32px);
+  align-items: center;
+  padding-top: 32px;
+}
+
+.lp-section8__left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lp8-content-gap, 20px);
+  align-self: end;
+}
+
+.lp-section8__jeans {
+  line-height: 0;
+}
+
+.lp-section8__jeans img {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  object-fit: contain;
+}
+
+.lp-section8__left-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lp8-content-gap, 20px);
+}
+
+.lp-section8__right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lp8-content-gap, 20px);
+  padding-top: 8px;
+  padding-left: 8px;
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.lp-section8__copy-small {
+  margin: 0;
+  font-size: clamp(12px, 1.05vw, 15px);
+  font-weight: 400;
+  line-height: 1.55;
+  max-width: 400px;
+}
+
+.lp-section8__copy-large {
+  margin: 0;
+  font-family: 'Permanent Marker', cursive;
+  font-size: clamp(17px, 2vw, 28px);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  color: var(--lp8-accent, #8b3e2b);
+  max-width: 420px;
+}
+
+.lp-section8__copy-accent {
+  margin: 0;
+  font-family: 'Permanent Marker', cursive;
+  font-size: clamp(12px, 1.15vw, 17px);
+  line-height: 1.35;
+  color: var(--lp8-accent, #8b3e2b);
+  max-width: 320px;
+  font-size: 26px;
+}
+
+.lp-section8__arrow {
+  display: block;
+  width: clamp(64px, 7vw, 100px);
+  height: auto;
+  margin-top: 4px;
+  margin-left: 4px;
+  color: var(--lp8-accent, #8b3e2b);
+  transform: rotate(-10deg);
+}
+
+.lp-section8__cta-text {
+  margin: 0;
+  max-width: 420px;
+  font-size: clamp(12px, 1.05vw, 15px);
+  line-height: 1.55;
+  transform: rotate(-2.5deg);
+  transform-origin: left center;
+}
+
+.lp-section8__banner {
+  display: inline-block;
+  transform: rotate(-2.5deg);
+  transform-origin: left center;
+}
+
+.lp-section8__banner-img {
+  display: block;
+  width: auto;
+  max-width: min(400px, 100%);
+  height: auto;
+}
+
+.lp-section8__banner-text {
+  display: inline-block;
+  position: relative;
+  padding: 10px 24px 12px;
+  background: var(--lp8-accent, #8b3e2b);
+  color: #fff;
+  font-family: 'Permanent Marker', cursive;
+  font-size: clamp(15px, 1.7vw, 24px);
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+}
+
+.lp-section8__banner-text::before {
+  content: '';
+  position: absolute;
+  inset: -3px -10px;
+  background: var(--lp8-accent, #8b3e2b);
+  transform: skewX(-3deg) rotate(-0.8deg);
+  z-index: -1;
+  border-radius: 2px;
+}
+
+.lp-section8__cta {
+  text-align: center;
+  padding: 240px 0 56px;
+}
+
+.lp-section8__btn {
+  display: inline-block;
+  background: var(--lp8-accent, #8b3e2b);
+  color: #fff;
+  font-family: 'Montserrat', 'Jost', sans-serif;
+  font-size: clamp(12px, 1vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 44px;
+  transition: opacity 0.2s;
+}
+
+.lp-section8__btn:hover {
+  opacity: 0.88;
+  color: #fff;
+}
+
+@media screen and (max-width: 989px) {
+
+  .lp-section8__left {
+    align-self: auto;
+  }
+
+  .lp-section8__jeans img {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .lp-section8__right {
+    padding-left: 0;
+    padding-top: 0;
+  }
+
+  .lp-section8__copy-small,
+  .lp-section8__copy-large,
+  .lp-section8__copy-accent {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .lp-section8__inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .lp-section8__cta {
+    padding: 32px 0 40px;
+  }
+
+  .lp-section8__btn {
+    padding: 14px 32px;
+  }
+}

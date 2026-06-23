@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+.bb-section {
+  --bb-bg: #e5e0d8;
+  --bb-accent: #a33b20;
+  --bb-accent-dark: #8b2e0b;
+  --bb-black: #000000;
+  --bb-white: #ffffff;
+  --bb-tan: #d4c4a8;
+  --bb-font-brush: 'Permanent Marker', cursive;
+  --bb-font-sans: 'Montserrat', 'Jost', sans-serif;
+  --bb-max-width: 1400px;
+  background-color: var(--bb-bg);
+  position: relative;
+  overflow: hidden;
+  font-family: var(--bb-font-sans);
+  color: var(--bb-black);
+}
+
+.bb-section * {
+  box-sizing: border-box;
+}
+
+.bb-inner {
+  max-width: var(--bb-max-width);
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.bb-brush {
+  font-family: var(--bb-font-brush);
+  color: var(--bb-accent);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.bb-brush--black {
+  color: var(--bb-black);
+}
+
+.bb-brush--white {
+  color: var(--bb-white);
+}
+
+.bb-caps {
+  font-family: var(--bb-font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.bb-btn {
+  display: inline-block;
+  background: var(--bb-black);
+  color: var(--bb-white);
+  font-family: var(--bb-font-sans);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 36px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.bb-btn:hover {
+  opacity: 0.85;
+  color: var(--bb-white);
+}
+
+.bb-brush-stroke {
+  display: inline-block;
+  background: var(--bb-accent);
+  padding: 8px 20px;
+  position: relative;
+}
+
+.bb-brush-stroke--sm {
+  padding: 6px 16px;
+}
+
+.bb-brush-stroke span,
+.bb-brush-stroke p {
+  color: var(--bb-white);
+  margin: 0;
+  font-family: var(--bb-font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+}
+
+.bb-brush-stroke--lg span,
+.bb-brush-stroke--lg p {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.bb-brush-stroke::before {
+  content: '';
+  position: absolute;
+  inset: -2px -6px;
+  background: var(--bb-accent);
+  transform: skewX(-2deg) rotate(-0.5deg);
+  z-index: -1;
+  border-radius: 2px;
+  opacity: 0.95;
+}
+
+.bb-brush-underline {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: 8px;
+  background: var(--bb-black);
+  margin-top: 4px;
+  border-radius: 2px;
+  transform: rotate(-1deg);
+}
+
+.bb-paper-texture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+.bb-deco-triangle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 280px 320px;
+  border-color: transparent transparent rgba(210, 195, 175, 0.5) transparent;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bb-callout {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 5;
+  color: var(--bb-accent);
+}
+
+.bb-callout__text {
+  font-family: var(--bb-font-brush);
+  font-size: clamp(14px, 1.4vw, 20px);
+  color: var(--bb-accent);
+  white-space: nowrap;
+}
+
+.bb-callout__arrow {
+  width: 40px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.bb-polaroid {
+  background: var(--bb-white);
+  padding: 12px 12px 40px;
+  box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.bb-polaroid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 989px) {
+  .bb-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .bb-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

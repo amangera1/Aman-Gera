@@ -1,0 +1,212 @@
+/* Blue Blood — New Launch */
+
+.bb-new-launch {
+  padding-bottom: 60px;
+}
+
+.bb-new-launch__hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  padding-top: 40px;
+  min-height: 520px;
+}
+
+.bb-new-launch__left {
+  padding-top: 20px;
+}
+
+.bb-new-launch__title {
+  font-size: clamp(48px, 5.5vw, 72px);
+  color: var(--bb-black);
+  margin: 0;
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+
+.bb-new-launch__subtitle {
+  font-size: clamp(13px, 1.2vw, 16px);
+  font-weight: 600;
+  margin: 24px 0 20px;
+  line-height: 1.4;
+  max-width: 420px;
+}
+
+.bb-new-launch__badges {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 40px;
+}
+
+.bb-new-launch__badges .bb-brush-stroke--sm {
+  align-self: flex-start;
+}
+
+.bb-new-launch__body {
+  font-size: clamp(14px, 1.1vw, 17px);
+  line-height: 1.65;
+  max-width: 400px;
+  margin: 0;
+  font-weight: 400;
+}
+
+.bb-new-launch__right {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.bb-new-launch__hero-img-wrap {
+  transform: rotate(-4deg);
+  max-width: 420px;
+  width: 100%;
+}
+
+.bb-new-launch__hero-img-wrap .bb-polaroid {
+  padding: 14px 14px 50px;
+}
+
+.bb-new-launch__hero-img-wrap img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+}
+
+.bb-new-launch__swatch-area {
+  position: absolute;
+  bottom: -60px;
+  left: -80px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.bb-new-launch__swatch {
+  transform: rotate(8deg);
+  max-width: 200px;
+  position: relative;
+  z-index: 2;
+}
+
+.bb-new-launch__swatch img {
+  width: 100%;
+  display: block;
+  filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.bb-new-launch__tag {
+  transform: rotate(-6deg) translateX(-30px);
+  background: var(--bb-tan);
+  padding: 20px 24px 28px;
+  position: relative;
+  z-index: 3;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.12);
+  min-width: 160px;
+}
+
+.bb-new-launch__tag::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bb-bg);
+  border: 2px solid #999;
+}
+
+.bb-new-launch__tag-text {
+  font-family: var(--bb-font-brush);
+  font-size: clamp(16px, 1.5vw, 22px);
+  color: var(--bb-accent);
+  text-align: center;
+  margin-top: 16px;
+  line-height: 1.2;
+}
+
+/* Product Grid */
+.bb-new-launch__grid-section {
+  margin-top: 120px;
+  position: relative;
+}
+
+.bb-new-launch__grid-heading {
+  text-align: center;
+  font-size: clamp(22px, 2.8vw, 36px);
+  font-weight: 800;
+  color: var(--bb-accent);
+  margin: 0 0 50px;
+  letter-spacing: 0.06em;
+}
+
+.bb-new-launch__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.bb-new-launch__grid-item {
+  text-align: center;
+}
+
+.bb-new-launch__grid-item img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  display: block;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.bb-new-launch__grid-label {
+  font-size: clamp(11px, 1vw, 14px);
+  font-weight: 700;
+  margin-top: 16px;
+  letter-spacing: 0.05em;
+}
+
+.bb-new-launch__grid-label a {
+  color: var(--bb-black);
+  text-decoration: none;
+}
+
+.bb-new-launch__grid-label a:hover {
+  color: var(--bb-accent);
+}
+
+@media screen and (max-width: 989px) {
+  .bb-new-launch__hero {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    min-height: auto;
+  }
+
+  .bb-new-launch__right {
+    justify-content: center;
+  }
+
+  .bb-new-launch__swatch-area {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: 30px;
+    justify-content: center;
+  }
+
+  .bb-new-launch__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 400px;
+  }
+
+  .bb-new-launch__grid-section {
+    margin-top: 60px;
+  }
+}

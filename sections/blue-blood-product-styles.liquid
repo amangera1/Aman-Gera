@@ -1,0 +1,362 @@
+{{ 'blue-blood-common.css' | asset_url | stylesheet_tag }}
+{{ 'blue-blood-product-styles.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .bb-product-styles {
+    margin-top: {{ section.settings.margin_top_desktop }}px;
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    --bb-bg: {{ section.settings.background_color }};
+    --bb-accent: {{ section.settings.accent_color }};
+  }
+
+  #shopify-section-{{ section.id }} .bb-product-style {
+    padding-top: {{ section.settings.block_padding_top }}px;
+    padding-bottom: {{ section.settings.block_padding_bottom }}px;
+  }
+
+  #shopify-section-{{ section.id }} .bb-product-style__layout {
+    gap: {{ section.settings.block_gap }}px;
+  }
+
+  @media screen and (max-width: 989px) {
+    #shopify-section-{{ section.id }} .bb-product-styles {
+      margin-top: {{ section.settings.margin_top_mobile }}px;
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<section class="bb-section bb-product-styles" id="bb-product-styles-{{ section.id }}">
+  <div class="bb-paper-texture"></div>
+
+  {% if section.settings.bg_illustration_top != blank %}
+    <div class="bb-product-styles__bg-illustration bb-product-styles__bg-illustration--top">
+      {{ section.settings.bg_illustration_top | image_url: width: 1400 | image_tag: loading: 'lazy', alt: '' }}
+    </div>
+  {% endif %}
+
+  {% if section.settings.bg_illustration_bottom != blank %}
+    <div class="bb-product-styles__bg-illustration bb-product-styles__bg-illustration--bottom">
+      {{ section.settings.bg_illustration_bottom | image_url: width: 1400 | image_tag: loading: 'lazy', alt: '' }}
+    </div>
+  {% endif %}
+
+  <div class="bb-inner">
+    {% for block in section.blocks %}
+      <div
+        class="bb-product-style{% if block.settings.image_position == 'right' %} bb-product-style--reverse{% endif %}"
+        {{ block.shopify_attributes }}
+      >
+        {% if block.settings.title != blank %}
+          <h2 class="bb-product-style__title bb-brush">{{ block.settings.title }}</h2>
+        {% endif %}
+
+        <div class="bb-product-style__layout">
+          <div class="bb-product-style__image-wrap">
+            {% if block.settings.product_image != blank %}
+              {{
+                block.settings.product_image
+                | image_url: width: 900
+                | image_tag: loading: 'lazy', alt: block.settings.title
+              }}
+            {% endif %}
+
+            {% if block.settings.callout_1 != blank %}
+              <div class="bb-callout bb-product-style__callout--1">
+                <span class="bb-callout__text">{{ block.settings.callout_1 }}</span>
+                <svg class="bb-callout__arrow" viewBox="0 0 50 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M2 15 C15 5, 30 25, 48 10" stroke="currentColor" stroke-width="2" fill="none"/>
+                  <path d="M42 6 L48 10 L44 16" stroke="currentColor" stroke-width="2" fill="none"/>
+                </svg>
+              </div>
+            {% endif %}
+
+            {% if block.settings.callout_2 != blank %}
+              <div class="bb-callout bb-product-style__callout--2">
+                <span class="bb-callout__text">{{ block.settings.callout_2 }}</span>
+                <svg class="bb-callout__arrow" viewBox="0 0 50 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M2 20 C15 10, 30 5, 48 18" stroke="currentColor" stroke-width="2" fill="none"/>
+                  <path d="M42 14 L48 18 L44 24" stroke="currentColor" stroke-width="2" fill="none"/>
+                </svg>
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="bb-product-style__text-area">
+            {% if block.settings.show_circle %}
+              <div class="bb-product-style__circle" aria-hidden="true"></div>
+            {% endif %}
+
+            {% if block.settings.description != blank %}
+              <div class="bb-product-style__text">
+                {{ block.settings.description }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.button_text != blank %}
+              <div class="bb-product-style__btn-wrap">
+                <a href="{{ block.settings.button_link | default: '#' }}" class="bb-btn">
+                  {{ block.settings.button_text }}
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blue Blood Product Styles",
+  "tag": "section",
+  "class": "section-blue-blood-product-styles",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#e5e0d8"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#a33b20"
+    },
+    {
+      "type": "header",
+      "content": "Background illustrations"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_illustration_top",
+      "label": "Top background illustration"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_illustration_bottom",
+      "label": "Bottom background illustration"
+    },
+    {
+      "type": "header",
+      "content": "Spacing — Desktop"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "label": "Section margin top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "label": "Section margin bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Section padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Section padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "block_padding_top",
+      "label": "Block padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "block_padding_bottom",
+      "label": "Block padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "block_gap",
+      "label": "Block column gap",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Spacing — Mobile"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Section margin top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "label": "Section margin bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Section padding top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Section padding bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_style",
+      "name": "Product style",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "BLUE BLOOD 2.0 SLIM STRAIGHT"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product image"
+        },
+        {
+          "type": "select",
+          "id": "image_position",
+          "label": "Image position",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "text",
+          "id": "callout_1",
+          "label": "Callout 1",
+          "default": "SLIM FIT"
+        },
+        {
+          "type": "text",
+          "id": "callout_2",
+          "label": "Callout 2",
+          "default": "MID-RISE"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_circle",
+          "label": "Show accent circle behind text",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p><strong>The original 5-pocket,</strong> refined over time as denim moved from workwear to everyday essential. The slim straight cut came later—cleaner, sharper, but still rooted in the same rugged DNA.</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "SHOP NOW"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blue Blood Product Styles",
+      "blocks": [
+        {
+          "type": "product_style",
+          "settings": {
+            "title": "BLUE BLOOD 2.0 SLIM STRAIGHT",
+            "image_position": "left",
+            "callout_1": "SLIM FIT",
+            "callout_2": "MID-RISE",
+            "show_circle": true
+          }
+        },
+        {
+          "type": "product_style",
+          "settings": {
+            "title": "DOUBLE KNEE CARPENTER",
+            "image_position": "right",
+            "callout_1": "DOUBLE KNEE FIT",
+            "callout_2": "MID-RISE",
+            "show_circle": false,
+            "description": "<p><strong>Built for American carpenters</strong> in the early 20th century, this design was all about durability—extra panels, tool pockets, and zero tolerance for wear and tear.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

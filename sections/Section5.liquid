@@ -1,0 +1,184 @@
+{{ 'section5-dual-image.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .lp-section5__heading {
+    top: {{ section.settings.heading_top }}%;
+    left: {{ section.settings.heading_left }}%;
+  }
+
+  #shopify-section-{{ section.id }} .lp-section5__grid {
+    padding-top: {{ section.settings.grid_top }}px;
+  }
+
+  #shopify-section-{{ section.id }} .lp-section5__img-wrap--right {
+    margin-left: {{ section.settings.overlap_left }}px;
+    margin-top: {{ section.settings.overlap_top }}px;
+  }
+</style>
+
+<section class="lp-section5" id="lp-section5-{{ section.id }}">
+  <div class="lp-section5__inner">
+    <div class="lp-section5__stage">
+      {% if section.settings.heading_image != blank or section.settings.heading_line_1 != blank %}
+        <div class="lp-section5__heading">
+          {% if section.settings.heading_image != blank %}
+            {{
+              section.settings.heading_image
+              | image_url: width: 700
+              | image_tag: class: 'lp-section5__heading-img', loading: 'lazy', alt: 'Built on vintage traditional shuttle looms'
+            }}
+          {% else %}
+            <div class="lp-section5__heading-text">
+              {% if section.settings.heading_line_1 != blank %}
+                <span>{{ section.settings.heading_line_1 }}</span>
+              {% endif %}
+              {% if section.settings.heading_line_2 != blank %}
+                <span>{{ section.settings.heading_line_2 }}</span>
+              {% endif %}
+              {% if section.settings.heading_line_3 != blank %}
+                <span>{{ section.settings.heading_line_3 }}</span>
+              {% endif %}
+            </div>
+            {% if section.settings.show_arrow %}
+              <svg class="lp-section5__heading-arrow" viewBox="0 0 120 55" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M8 6 C42 46, 68 12, 112 42" stroke="currentColor" stroke-width="2" fill="none"/>
+                <path d="M104 36 L112 42 L105 48" stroke="currentColor" stroke-width="2" fill="none"/>
+              </svg>
+            {% endif %}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <div class="lp-section5__grid">
+        {% if section.settings.image_left != blank %}
+          <div class="lp-section5__img-wrap lp-section5__img-wrap--left">
+            {{
+              section.settings.image_left
+              | image_url: width: 2000
+              | image_tag: class: 'lp-section5__img', loading: 'lazy', alt: 'Left image'
+            }}
+          </div>
+        {% endif %}
+
+        {% if section.settings.image_right != blank %}
+          <div class="lp-section5__img-wrap lp-section5__img-wrap--right">
+            {{
+              section.settings.image_right
+              | image_url: width: 2000
+              | image_tag: class: 'lp-section5__img', loading: 'lazy', alt: 'Right image'
+            }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing Page Section 5",
+  "tag": "section",
+  "class": "section-landing-page-5",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_left",
+      "label": "Left image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_right",
+      "label": "Right image"
+    },
+    {
+      "type": "header",
+      "content": "Top heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "heading_image",
+      "label": "Heading image",
+      "info": "Upload heading graphic for exact match (recommended)"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "Heading line 1",
+      "default": "BUILT ON VINTAGE"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_2",
+      "label": "Heading line 2",
+      "default": "TRADITIONAL SHUTTLE"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_3",
+      "label": "Heading line 3",
+      "default": "LOOMS"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrow",
+      "label": "Show arrow (text only)",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "heading_left",
+      "label": "Heading from left",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "%",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "heading_top",
+      "label": "Heading from top",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "%",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "grid_top",
+      "label": "Space above images",
+      "min": 40,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 200
+    },
+    {
+      "type": "range",
+      "id": "overlap_left",
+      "label": "Right image overlap (left)",
+      "min": -360,
+      "max": 0,
+      "step": 4,
+      "unit": "px",
+      "default": -272
+    },
+    {
+      "type": "range",
+      "id": "overlap_top",
+      "label": "Right image overlap (up)",
+      "min": -160,
+      "max": 0,
+      "step": 4,
+      "unit": "px",
+      "default": -100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Landing Page Section 5"
+    }
+  ]
+}
+{% endschema %}

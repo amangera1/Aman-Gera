@@ -1,0 +1,315 @@
+{{ 'section2-product-grid.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .lp-section2 {
+    margin-top: {{ section.settings.margin_top_desktop }}px;
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    --lp2-bg: {{ section.settings.background_color }};
+    --lp2-accent: {{ section.settings.accent_color }};
+    --lp2-heading-gap: {{ section.settings.heading_gap }}px;
+    --lp2-card-gap: {{ section.settings.card_gap }}px;
+    --lp2-card-width: {{ section.settings.card_width }}px;
+  }
+
+  @media screen and (max-width: 989px) {
+    #shopify-section-{{ section.id }} .lp-section2 {
+      margin-top: {{ section.settings.margin_top_mobile }}px;
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+      --lp2-card-width: {{ section.settings.card_width_mobile }}px;
+    }
+  }
+</style>
+
+<section class="lp-section2" id="lp-section2-{{ section.id }}">
+  {% if section.settings.show_deco_triangle %}
+    <div class="lp-section2__deco" aria-hidden="true"></div>
+  {% endif %}
+
+  <div class="lp-section2__inner">
+    {% if section.settings.heading != blank %}
+      <h2 class="lp-section2__heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="lp-section2__scroll-wrap">
+        <div
+          class="lp-section2__track{% if section.blocks.size > section.settings.visible_cards %} lp-section2__track--scroll{% endif %}"
+          style="scroll-snap-type: x proximity;"
+        >
+          {% for block in section.blocks %}
+            {% if block.settings.image != blank or block.settings.label != blank %}
+              {% if block.settings.link != blank %}
+                <a
+                  href="{{ block.settings.link }}"
+                  class="lp-section2__card"
+                  {{ block.shopify_attributes }}
+                >
+                  {% if block.settings.image != blank %}
+                    <div class="lp-section2__card-media">
+                      {{
+                        block.settings.image
+                        | image_url: width: 500
+                        | image_tag: class: 'lp-section2__card-image', loading: 'lazy', alt: block.settings.label
+                      }}
+                    </div>
+                  {% endif %}
+                  {% if block.settings.label != blank %}
+                    <p class="lp-section2__card-label">{{ block.settings.label }}</p>
+                  {% endif %}
+                </a>
+              {% else %}
+                <div class="lp-section2__card" {{ block.shopify_attributes }}>
+                  {% if block.settings.image != blank %}
+                    <div class="lp-section2__card-media">
+                      {{
+                        block.settings.image
+                        | image_url: width: 500
+                        | image_tag: class: 'lp-section2__card-image', loading: 'lazy', alt: block.settings.label
+                      }}
+                    </div>
+                  {% endif %}
+                  {% if block.settings.label != blank %}
+                    <p class="lp-section2__card-label">{{ block.settings.label }}</p>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing Page Section 2",
+  "tag": "section",
+  "class": "section-landing-page-2",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "BUILT WITH THE INTENT TO LAST"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "visible_cards",
+      "label": "Cards before scroll starts",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 3,
+      "info": "More blocks than this will enable horizontal scroll"
+    },
+    {
+      "type": "range",
+      "id": "card_width",
+      "label": "Card width (desktop)",
+      "min": 160,
+      "max": 320,
+      "step": 4,
+      "unit": "px",
+      "default": 220
+    },
+    {
+      "type": "range",
+      "id": "card_width_mobile",
+      "label": "Card width (mobile)",
+      "min": 160,
+      "max": 280,
+      "step": 4,
+      "unit": "px",
+      "default": 200
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "Gap between cards",
+      "min": 8,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "heading_gap",
+      "label": "Gap below heading",
+      "min": 16,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "checkbox",
+      "id": "show_deco_triangle",
+      "label": "Show bottom-right triangle",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#e5e0d8"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Heading color",
+      "default": "#a33b20"
+    },
+    {
+      "type": "header",
+      "content": "Spacing - Desktop"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "label": "Section margin top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "label": "Section margin bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Section padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Section padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Spacing - Mobile"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Section margin top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "label": "Section margin bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Section padding top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Section padding bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "5 POCKET SLIM STRAIGHT"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Landing Page Section 2",
+      "blocks": [
+        {
+          "type": "product_card",
+          "settings": {
+            "label": "5 POCKET SLIM STRAIGHT"
+          }
+        },
+        {
+          "type": "product_card",
+          "settings": {
+            "label": "5 POCKET TRUE STRAIGHT"
+          }
+        },
+        {
+          "type": "product_card",
+          "settings": {
+            "label": "DOUBLE KNEE CARPENTER"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

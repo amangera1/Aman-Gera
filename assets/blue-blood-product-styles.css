@@ -1,0 +1,168 @@
+/* Blue Blood — Product Styles */
+
+.bb-product-styles {
+  padding-bottom: 80px;
+}
+
+.bb-product-styles__bg-illustration {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.12;
+}
+
+.bb-product-styles__bg-illustration img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bb-product-styles__bg-illustration--top {
+  top: 0;
+  right: 0;
+  max-width: 60%;
+}
+
+.bb-product-styles__bg-illustration--bottom {
+  bottom: 0;
+  left: 0;
+  max-width: 55%;
+}
+
+.bb-product-style {
+  position: relative;
+  padding: 60px 0;
+  z-index: 2;
+}
+
+.bb-product-style__title {
+  text-align: center;
+  font-size: clamp(24px, 3vw, 42px);
+  margin: 0 0 40px;
+  transform: rotate(-1deg);
+}
+
+.bb-product-style__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+}
+
+.bb-product-style--reverse .bb-product-style__layout {
+  direction: rtl;
+}
+
+.bb-product-style--reverse .bb-product-style__layout > * {
+  direction: ltr;
+}
+
+.bb-product-style__image-wrap {
+  position: relative;
+}
+
+.bb-product-style__image-wrap img {
+  width: 100%;
+  max-width: 420px;
+  display: block;
+  margin: 0 auto;
+}
+
+.bb-product-style__callout--1 {
+  top: 30%;
+  right: 0;
+}
+
+.bb-product-style__callout--2 {
+  top: 15%;
+  left: 10%;
+}
+
+.bb-product-style--reverse .bb-product-style__callout--1 {
+  right: auto;
+  left: 0;
+}
+
+.bb-product-style--reverse .bb-product-style__callout--2 {
+  left: auto;
+  right: 10%;
+}
+
+.bb-product-style__text-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 280px;
+  padding: 30px;
+}
+
+.bb-product-style--reverse .bb-product-style__text-area {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.bb-product-style__circle {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: var(--bb-accent);
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bb-product-style--reverse .bb-product-style__circle {
+  display: none;
+}
+
+.bb-product-style__text {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(14px, 1.2vw, 17px);
+  line-height: 1.65;
+  max-width: 340px;
+  margin: 0 0 28px;
+}
+
+.bb-product-style__text strong {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.bb-product-style__btn-wrap {
+  position: relative;
+  z-index: 2;
+}
+
+@media screen and (max-width: 989px) {
+  .bb-product-style {
+    padding: 40px 0;
+  }
+
+  .bb-product-style__layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .bb-product-style--reverse .bb-product-style__layout {
+    direction: ltr;
+  }
+
+  .bb-product-style__text-area {
+    align-items: flex-start !important;
+    text-align: left !important;
+    min-height: auto;
+    padding: 20px 0;
+  }
+
+  .bb-product-style__circle {
+    width: 260px;
+    height: 260px;
+  }
+}

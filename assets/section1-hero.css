@@ -1,0 +1,124 @@
+/* Landing Page Section 1 — New Launch Hero */
+
+.lp-section1 {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--lp1-bg, #e5e0d8);
+}
+
+.lp-section1__texture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+.lp-section1__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+.lp-section1__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 44%) minmax(0, 56%);
+}
+
+.lp-section1__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.lp-section1__heading-img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.lp-section1__line-img {
+  display: block;
+  width: auto;
+  max-width: 280px;
+  height: auto;
+  margin-top: 4px;
+  margin: auto;
+  margin-bottom: 0;
+}
+
+.lp-section1__subtitle-img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+.lp-section1__badge-img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin-top: 16px;
+}
+
+.lp-section1__body {
+  margin: 28px 0 0;
+  max-width: 400px;
+  font-family: 'Montserrat', 'Jost', sans-serif;
+  font-size: clamp(14px, 1.1vw, 17px);
+  font-weight: 400;
+  line-height: 1.65;
+  color: #000;
+}
+
+.lp-section1__right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lp-section1__hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 989px) {
+  .lp-section1__inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .lp-section1__inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .lp-section1__body {
+    max-width: 100%;
+  }
+
+  .lp-section1__line-img {
+    max-width: 180px;
+  }
+
+  .lp-section1__hero-img{
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    height: 100%;
+  }
+}

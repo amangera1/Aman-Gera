@@ -1,0 +1,14 @@
+---
+description: Protect templates/index.json from accidental overwrites
+globs: templates/index.json
+alwaysApply: false
+---
+
+# Do NOT edit templates/index.json
+
+This file holds Shopify theme customizer data (uploaded images, spacing, section order).
+
+- **Never modify** `templates/index.json` unless the user explicitly asks.
+- Section `.liquid` files and `.css` assets are fine to edit.
+- To add sections to homepage, tell the user to add them in Theme Editor — do not write index.json yourself.
+- A `.shopifyignore` entry prevents `shopify theme dev` from pushing local index.json to remote.

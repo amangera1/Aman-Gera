@@ -1,0 +1,174 @@
+/* Blue Blood — Born From Work */
+
+.bb-born-from-work {
+  padding-bottom: 80px;
+}
+
+.bb-born-from-work__header {
+  text-align: center;
+  padding: 40px 0 30px;
+}
+
+.bb-born-from-work__title {
+  font-size: clamp(36px, 4.5vw, 56px);
+  margin: 0 0 12px;
+}
+
+.bb-born-from-work__subtitle {
+  font-family: var(--bb-font-brush);
+  font-size: clamp(14px, 1.4vw, 20px);
+  color: var(--bb-black);
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+.bb-born-from-work__polaroids {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  margin: 40px auto 60px;
+  max-width: 700px;
+  position: relative;
+  min-height: 320px;
+}
+
+.bb-born-from-work__polaroid {
+  position: relative;
+}
+
+.bb-born-from-work__polaroid--left {
+  transform: rotate(-5deg);
+  z-index: 2;
+  max-width: 340px;
+  width: 55%;
+}
+
+.bb-born-from-work__polaroid--right {
+  transform: rotate(6deg);
+  z-index: 1;
+  max-width: 260px;
+  width: 42%;
+  margin-top: 30px;
+  margin-left: -60px;
+}
+
+.bb-born-from-work__polaroid .bb-polaroid img {
+  aspect-ratio: 4/5;
+  object-fit: cover;
+}
+
+.bb-born-from-work__paperclip {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: auto;
+  z-index: 5;
+}
+
+.bb-born-from-work__product-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.bb-born-from-work__jeans img {
+  width: 100%;
+  max-width: 480px;
+  display: block;
+}
+
+.bb-born-from-work__copy {
+  padding: 20px 0;
+}
+
+.bb-born-from-work__copy-small {
+  font-size: clamp(13px, 1.1vw, 16px);
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.bb-born-from-work__copy-large {
+  font-size: clamp(20px, 2.2vw, 32px);
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+.bb-born-from-work__copy-accent {
+  font-size: clamp(14px, 1.3vw, 20px);
+  margin: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.bb-born-from-work__arrow {
+  display: inline-block;
+  width: 80px;
+  height: auto;
+  vertical-align: middle;
+  margin-left: 8px;
+  color: var(--bb-accent);
+}
+
+.bb-born-from-work__cta-section {
+  text-align: center;
+  padding: 20px 0 40px;
+}
+
+.bb-born-from-work__cta-text {
+  font-size: clamp(13px, 1.1vw, 16px);
+  margin: 0 auto 20px;
+  max-width: 600px;
+  transform: rotate(-2deg);
+  line-height: 1.5;
+}
+
+.bb-born-from-work__cta-banner {
+  display: inline-block;
+  transform: rotate(-2deg);
+}
+
+.bb-born-from-work__cta-banner .bb-brush-stroke {
+  padding: 14px 32px;
+}
+
+.bb-born-from-work__cta-banner .bb-brush-stroke span {
+  font-family: var(--bb-font-brush);
+  font-size: clamp(18px, 2vw, 28px);
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+@media screen and (max-width: 989px) {
+  .bb-born-from-work__polaroids {
+    flex-direction: column;
+    align-items: center;
+    min-height: auto;
+    gap: 20px;
+  }
+
+  .bb-born-from-work__polaroid--left,
+  .bb-born-from-work__polaroid--right {
+    width: 80%;
+    max-width: 320px;
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .bb-born-from-work__product-section {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .bb-born-from-work__jeans {
+    text-align: center;
+  }
+
+  .bb-born-from-work__jeans img {
+    margin: 0 auto;
+  }
+}

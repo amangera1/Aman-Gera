@@ -1,0 +1,242 @@
+{{ 'section7-born-header.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .lp-section7 {
+    margin-top: {{ section.settings.margin_top_desktop }}px;
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    --lp7-bg: {{ section.settings.background_color }};
+    --lp7-accent: {{ section.settings.accent_color }};
+    --lp7-max-width: {{ section.settings.max_width }}px;
+  }
+
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .lp-section7 {
+      margin-top: {{ section.settings.margin_top_mobile }}px;
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<section class="lp-section7" id="lp-section7-{{ section.id }}">
+  {% if section.settings.show_deco_triangle %}
+    <div class="lp-section7__deco" aria-hidden="true"></div>
+  {% endif %}
+
+  <div class="lp-section7__inner">
+    <header class="lp-section7__header">
+      {% if section.settings.heading_image != blank %}
+        {{
+          section.settings.heading_image
+          | image_url: width: 900
+          | image_tag: class: 'lp-section7__title-img', loading: 'lazy', alt: section.settings.title
+        }}
+      {% elsif section.settings.title != blank %}
+        <h2 class="lp-section7__title">{{ section.settings.title }}</h2>
+      {% endif %}
+
+      {% if section.settings.subtitle != blank %}
+        <p class="lp-section7__subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+    </header>
+
+    <div class="lp-section7__frame">
+      {% if section.settings.image_desktop != blank %}
+        {{
+          section.settings.image_desktop
+          | image_url: width: 2800
+          | image_tag:
+            class: 'lp-section7__img lp-section7__img--desktop',
+            loading: 'lazy',
+            alt: section.settings.image_alt | default: 'Born from work polaroids',
+            widths: '750, 1100, 1500, 2000, 2800',
+            sizes: '100vw'
+        }}
+      {% endif %}
+
+      {% if section.settings.image_mobile != blank %}
+        {{
+          section.settings.image_mobile
+          | image_url: width: 1200
+          | image_tag:
+            class: 'lp-section7__img lp-section7__img--mobile',
+            loading: 'lazy',
+            alt: section.settings.image_alt | default: 'Born from work polaroids',
+            widths: '375, 550, 750, 1100, 1200',
+            sizes: '100vw'
+        }}
+      {% elsif section.settings.image_desktop != blank %}
+        {{
+          section.settings.image_desktop
+          | image_url: width: 1200
+          | image_tag:
+            class: 'lp-section7__img lp-section7__img--mobile',
+            loading: 'lazy',
+            alt: section.settings.image_alt | default: 'Born from work polaroids',
+            widths: '375, 550, 750, 1100, 1200',
+            sizes: '100vw'
+        }}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing Page Section 7",
+  "tag": "section",
+  "class": "section-landing-page-7",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "heading_image",
+      "label": "Heading image",
+      "info": "Optional — upload brush heading graphic for exact match"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading text",
+      "default": "BORN FROM WORK"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "CARRIED FORWARD BY THOSE WHO VALUE IT"
+    },
+    {
+      "type": "header",
+      "content": "Polaroids image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Desktop image",
+      "info": "One complete polaroids image (no heading in file)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile image",
+      "info": "Mobile polaroids image. If empty, desktop image is used."
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Born from work polaroids"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_deco_triangle",
+      "label": "Show top-left deco triangle",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#e5e0d8"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Heading accent color",
+      "default": "#a33b20"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Content max width",
+      "min": 960,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "default": 1200
+    },
+    {
+      "type": "header",
+      "content": "Spacing - Desktop"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "label": "Margin top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Spacing - Mobile"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Margin top",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Landing Page Section 7"
+    }
+  ]
+}
+{% endschema %}

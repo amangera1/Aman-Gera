@@ -1,0 +1,295 @@
+{{ 'section1-hero.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .lp-section1 {
+    margin-top: {{ section.settings.margin_top_desktop }}px;
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    --lp1-bg: {{ section.settings.background_color }};
+  }
+
+
+  #shopify-section-{{ section.id }} .lp-section1__line-img {
+    margin-top: {{ section.settings.line_spacing }}px;
+  }
+
+  #shopify-section-{{ section.id }} .lp-section1__subtitle-img {
+    margin-top: {{ section.settings.subtitle_spacing }}px;
+  }
+
+  #shopify-section-{{ section.id }} .lp-section1__badge-img {
+    margin-top: {{ section.settings.badge_spacing }}px;
+  }
+
+  #shopify-section-{{ section.id }} .lp-section1__body {
+    margin-top: {{ section.settings.body_spacing }}px;
+  }
+
+  @media screen and (max-width: 989px) {
+    #shopify-section-{{ section.id }} .lp-section1 {
+      margin-top: {{ section.settings.margin_top_mobile }}px;
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<section class="lp-section1" id="lp-section1-{{ section.id }}">
+  <div class="lp-section1__texture" aria-hidden="true"></div>
+
+  <div class="lp-section1__inner">
+    <div class="lp-section1__grid">
+      <div class="lp-section1__left">
+        {% if section.settings.heading_image != blank %}
+          {{
+            section.settings.heading_image
+            | image_url: width: 800
+            | image_tag: class: 'lp-section1__heading-img', loading: 'eager', alt: 'New Launch'
+          }}
+        {% endif %}
+
+        {% if section.settings.line_image != blank %}
+          {{
+            section.settings.line_image
+            | image_url: width: 600
+            | image_tag: class: 'lp-section1__line-img', loading: 'eager', alt: ''
+          }}
+        {% endif %}
+
+        {% if section.settings.subtitle_image != blank %}
+          {{
+            section.settings.subtitle_image
+            | image_url: width: 800
+            | image_tag: class: 'lp-section1__subtitle-img', loading: 'eager', alt: ''
+          }}
+        {% endif %}
+
+        {% if section.settings.badge_image != blank %}
+          {{
+            section.settings.badge_image
+            | image_url: width: 800
+            | image_tag: class: 'lp-section1__badge-img', loading: 'eager', alt: 'Made to last longer'
+          }}
+        {% endif %}
+
+        {% if section.settings.body_text != blank %}
+          <p class="lp-section1__body">{{ section.settings.body_text }}</p>
+        {% endif %}
+      </div>
+
+      <div class="lp-section1__right">
+        {% if section.settings.hero_image != blank %}
+          {{
+            section.settings.hero_image
+            | image_url: width: 1200
+            | image_tag: class: 'lp-section1__hero-img', loading: 'eager', alt: 'Blue Blood Selvedge Denim'
+          }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing Page Section 1",
+  "tag": "section",
+  "class": "section-landing-page-1",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "heading_image",
+      "label": "Heading image (NEW LAUNCH)"
+    },
+    {
+      "type": "image_picker",
+      "id": "line_image",
+      "label": "Line image (below heading)"
+    },
+    {
+      "type": "image_picker",
+      "id": "subtitle_image",
+      "label": "Subtitle image (15oz HEAVYDUTY...)"
+    },
+    {
+      "type": "image_picker",
+      "id": "badge_image",
+      "label": "Badge image (red background)"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Right side complete image"
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "textarea",
+      "id": "body_text",
+      "label": "Body text",
+      "default": "This is not denim made for first impressions. At 15oz, it holds its shape and breaks in over time - not overnight. The kind of denim that doesn't give up early. The kind that gets better the more you live in it."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#e5e0d8"
+    },
+    {
+      "type": "header",
+      "content": "Spacing - Desktop"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "label": "Section margin top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "label": "Section margin bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Section padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Section padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Column gap",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "line_spacing",
+      "label": "Gap below heading",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "subtitle_spacing",
+      "label": "Gap below line",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "badge_spacing",
+      "label": "Gap below subtitle",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "body_spacing",
+      "label": "Gap below badge",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "header",
+      "content": "Spacing - Mobile"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Section margin top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "label": "Section margin bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Section padding top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Section padding bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    }
+  ],
+  "presets": [
+    {
+      "name": "Landing Page Section 1"
+    }
+  ]
+}
+{% endschema %}

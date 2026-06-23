@@ -1,0 +1,416 @@
+{{ 'blue-blood-common.css' | asset_url | stylesheet_tag }}
+{{ 'blue-blood-new-launch.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .bb-new-launch {
+    margin-top: {{ section.settings.margin_top_desktop }}px;
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    --bb-bg: {{ section.settings.background_color }};
+    --bb-accent: {{ section.settings.accent_color }};
+  }
+
+  #shopify-section-{{ section.id }} .bb-new-launch__hero {
+    gap: {{ section.settings.hero_gap }}px;
+    padding-top: {{ section.settings.hero_padding_top }}px;
+  }
+
+  #shopify-section-{{ section.id }} .bb-new-launch__grid-section {
+    margin-top: {{ section.settings.grid_section_margin_top }}px;
+  }
+
+  #shopify-section-{{ section.id }} .bb-new-launch__grid {
+    gap: {{ section.settings.grid_gap }}px;
+  }
+
+  @media screen and (max-width: 989px) {
+    #shopify-section-{{ section.id }} .bb-new-launch {
+      margin-top: {{ section.settings.margin_top_mobile }}px;
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+
+    #shopify-section-{{ section.id }} .bb-new-launch__grid-section {
+      margin-top: {{ section.settings.grid_section_margin_top_mobile }}px;
+    }
+  }
+</style>
+
+<section class="bb-section bb-new-launch" id="bb-new-launch-{{ section.id }}">
+  <div class="bb-paper-texture"></div>
+  <div class="bb-deco-triangle"></div>
+
+  <div class="bb-inner">
+    <div class="bb-new-launch__hero">
+      <div class="bb-new-launch__left">
+        {% if section.settings.title != blank %}
+          <h1 class="bb-new-launch__title bb-brush bb-brush--black">{{ section.settings.title }}</h1>
+          <span class="bb-brush-underline" aria-hidden="true"></span>
+        {% endif %}
+
+        {% if section.settings.subtitle != blank %}
+          <p class="bb-new-launch__subtitle bb-caps">{{ section.settings.subtitle }}</p>
+        {% endif %}
+
+        <div class="bb-new-launch__badges">
+          {% if section.settings.badge_small != blank %}
+            <div class="bb-brush-stroke bb-brush-stroke--sm">
+              <span>{{ section.settings.badge_small }}</span>
+            </div>
+          {% endif %}
+          {% if section.settings.badge_large != blank %}
+            <div class="bb-brush-stroke bb-brush-stroke--lg">
+              <span>{{ section.settings.badge_large }}</span>
+            </div>
+          {% endif %}
+        </div>
+
+        {% if section.settings.body_text != blank %}
+          <p class="bb-new-launch__body">{{ section.settings.body_text }}</p>
+        {% endif %}
+      </div>
+
+      <div class="bb-new-launch__right">
+        {% if section.settings.hero_image != blank %}
+          <div class="bb-new-launch__hero-img-wrap">
+            <div class="bb-polaroid">
+              {{
+                section.settings.hero_image
+                | image_url: width: 900
+                | image_tag: loading: 'eager', alt: section.settings.title
+              }}
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="bb-new-launch__swatch-area">
+          {% if section.settings.swatch_image != blank %}
+            <div class="bb-new-launch__swatch">
+              {{
+                section.settings.swatch_image
+                | image_url: width: 500
+                | image_tag: loading: 'lazy', alt: 'Fabric swatch'
+              }}
+            </div>
+          {% endif %}
+
+          {% if section.settings.tag_text != blank %}
+            <div class="bb-new-launch__tag">
+              <p class="bb-new-launch__tag-text">{{ section.settings.tag_text }}</p>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    {% if section.settings.grid_heading != blank or section.blocks.size > 0 %}
+      <div class="bb-new-launch__grid-section">
+        {% if section.settings.grid_heading != blank %}
+          <h2 class="bb-new-launch__grid-heading bb-caps">{{ section.settings.grid_heading }}</h2>
+        {% endif %}
+
+        {% if section.blocks.size > 0 %}
+          <div class="bb-new-launch__grid">
+            {% for block in section.blocks %}
+              <div class="bb-new-launch__grid-item" {{ block.shopify_attributes }}>
+                {% if block.settings.image != blank %}
+                  {% if block.settings.link != blank %}
+                    <a href="{{ block.settings.link }}">
+                      {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', alt: block.settings.label }}
+                    </a>
+                  {% else %}
+                    {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', alt: block.settings.label }}
+                  {% endif %}
+                {% endif %}
+                {% if block.settings.label != blank %}
+                  <p class="bb-new-launch__grid-label bb-caps">
+                    {% if block.settings.link != blank %}
+                      <a href="{{ block.settings.link }}">{{ block.settings.label }}</a>
+                    {% else %}
+                      {{ block.settings.label }}
+                    {% endif %}
+                  </p>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blue Blood New Launch",
+  "tag": "section",
+  "class": "section-blue-blood-new-launch",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#e5e0d8"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#a33b20"
+    },
+    {
+      "type": "header",
+      "content": "Hero content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "NEW LAUNCH"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "15oz HEAVYDUTY BLUE BLOOD 2.0 SELVEDGE DENIM"
+    },
+    {
+      "type": "text",
+      "id": "badge_small",
+      "label": "Small badge text",
+      "default": "Woven slower. Built tighter."
+    },
+    {
+      "type": "text",
+      "id": "badge_large",
+      "label": "Large badge text",
+      "default": "MADE TO LAST LONGER"
+    },
+    {
+      "type": "textarea",
+      "id": "body_text",
+      "label": "Body text",
+      "default": "This is not denim made for first impressions. At 15oz, it holds its shape and breaks in over time - not overnight. The kind of denim that doesn't give up early. The kind that gets better the more you live in it."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image (polaroid)"
+    },
+    {
+      "type": "image_picker",
+      "id": "swatch_image",
+      "label": "Fabric swatch image"
+    },
+    {
+      "type": "text",
+      "id": "tag_text",
+      "label": "Hang tag text",
+      "default": "15oz SELVEDGE DENIM"
+    },
+    {
+      "type": "header",
+      "content": "Product grid"
+    },
+    {
+      "type": "text",
+      "id": "grid_heading",
+      "label": "Grid heading",
+      "default": "BUILT WITH THE INTENT TO LAST"
+    },
+    {
+      "type": "header",
+      "content": "Spacing — Desktop"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "label": "Section margin top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "label": "Section margin bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Section padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Section padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "hero_gap",
+      "label": "Hero column gap",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "hero_padding_top",
+      "label": "Hero padding top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "grid_section_margin_top",
+      "label": "Grid section margin top",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "label": "Grid item gap",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Spacing — Mobile"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Section margin top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "label": "Section margin bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Section padding top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Section padding bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "grid_section_margin_top_mobile",
+      "label": "Grid section margin top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Product label",
+          "default": "5 POCKET SLIM STRAIGHT"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Product link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blue Blood New Launch",
+      "blocks": [
+        {
+          "type": "product",
+          "settings": {
+            "label": "5 POCKET SLIM STRAIGHT"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "label": "5 POCKET TRUE STRAIGHT"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "label": "DOUBLE KNEE CARPENTER"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

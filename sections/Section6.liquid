@@ -1,0 +1,166 @@
+{{ 'section6-product-styles.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .lp-section6 {
+    margin-top: {{ section.settings.margin_top_desktop }}px;
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    --lp6-bg: {{ section.settings.background_color }};
+    --lp6-max-width: {{ section.settings.max_width }}px;
+  }
+
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .lp-section6 {
+      margin-top: {{ section.settings.margin_top_mobile }}px;
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<section class="lp-section6" id="lp-section6-{{ section.id }}">
+  <div class="lp-section6__frame">
+    {% if section.settings.image_desktop != blank %}
+      {{
+        section.settings.image_desktop
+        | image_url: width: 2800
+        | image_tag:
+          class: 'lp-section6__img lp-section6__img--desktop',
+          loading: 'lazy',
+          alt: section.settings.image_alt | default: 'Product styles',
+          widths: '750, 1100, 1500, 2000, 2800',
+          sizes: '100vw'
+      }}
+    {% endif %}
+
+    {% if section.settings.image_mobile != blank %}
+      {{
+        section.settings.image_mobile
+        | image_url: width: 1200
+        | image_tag:
+          class: 'lp-section6__img lp-section6__img--mobile',
+          loading: 'lazy',
+          alt: section.settings.image_alt | default: 'Product styles',
+          widths: '375, 550, 750, 1100, 1200',
+          sizes: '100vw'
+      }}
+    {% elsif section.settings.image_desktop != blank %}
+      {{
+        section.settings.image_desktop
+        | image_url: width: 1200
+        | image_tag:
+          class: 'lp-section6__img lp-section6__img--mobile',
+          loading: 'lazy',
+          alt: section.settings.image_alt | default: 'Product styles',
+          widths: '375, 550, 750, 1100, 1200',
+          sizes: '100vw'
+      }}
+    {% else %}
+      <div
+        class="lp-section6__img lp-section6__img--desktop"
+        style="min-height: 480px; background: var(--lp6-bg, #e5e0d8);"
+        role="img"
+        aria-label="Product styles"
+      ></div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing Page Section 6",
+  "tag": "section",
+  "class": "section-landing-page-6",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Desktop image",
+      "info": "Full section design for desktop (Slim Straight + Carpenter). Export from Canva as one image."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile image",
+      "info": "Full section design for mobile. If empty, desktop image is used on mobile too."
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Blue Blood product styles"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Section max width",
+      "min": 1000,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "default": 1440
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#e5e0d8"
+    },
+    {
+      "type": "header",
+      "content": "Spacing - Desktop"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "label": "Margin top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Spacing - Mobile"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Margin top",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Landing Page Section 6"
+    }
+  ]
+}
+{% endschema %}

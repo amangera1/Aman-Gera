@@ -1,0 +1,272 @@
+{{ 'section8-born-cta.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .lp-section8 {
+    margin-top: {{ section.settings.margin_top_desktop }}px;
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    --lp8-bg: {{ section.settings.background_color }};
+    --lp8-accent: {{ section.settings.accent_color }};
+    --lp8-max-width: {{ section.settings.max_width }}px;
+    --lp8-column-gap: {{ section.settings.column_gap }}px;
+    --lp8-content-gap: {{ section.settings.content_gap }}px;
+  }
+
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .lp-section8 {
+      margin-top: {{ section.settings.margin_top_mobile }}px;
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<section class="lp-section8" id="lp-section8-{{ section.id }}">
+  <div class="lp-section8__inner">
+    <div class="lp-section8__grid">
+      <div class="lp-section8__left">
+        {% if section.settings.product_image != blank %}
+          <div class="lp-section8__jeans">
+            {{
+              section.settings.product_image
+              | image_url: width: 1200
+              | image_tag: loading: 'lazy', alt: 'Selvedge denim jeans'
+            }}
+          </div>
+        {% endif %}
+
+        <div class="lp-section8__left-bottom">
+          {% if section.settings.cta_text != blank %}
+            <p class="lp-section8__cta-text">{{ section.settings.cta_text }}</p>
+          {% endif %}
+
+          {% if section.settings.banner_image != blank %}
+            <div class="lp-section8__banner">
+              {{
+                section.settings.banner_image
+                | image_url: width: 800
+                | image_tag: class: 'lp-section8__banner-img', loading: 'lazy', alt: section.settings.cta_banner
+              }}
+            </div>
+          {% elsif section.settings.cta_banner != blank %}
+            <div class="lp-section8__banner">
+              <span class="lp-section8__banner-text">{{ section.settings.cta_banner }}</span>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="lp-section8__right">
+        <div class="lp-section8__right-top">
+          {% if section.settings.copy_small != blank %}
+            <p class="lp-section8__copy-small">{{ section.settings.copy_small }}</p>
+          {% endif %}
+  
+          {% if section.settings.copy_large != blank %}
+            <p class="lp-section8__copy-large">{{ section.settings.copy_large }}</p>
+          {% endif %}
+        </div>
+
+        {% if section.settings.copy_accent != blank %}
+          <p class="lp-section8__copy-accent">
+            {{ section.settings.copy_accent }}
+            {% if section.settings.show_arrow %}
+              <svg class="lp-section8__arrow" viewBox="0 0 100 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 8 C30 36, 52 4, 94 28" stroke="currentColor" stroke-width="2.2" fill="none"/>
+                <path d="M86 22 L94 28 L88 36" stroke="currentColor" stroke-width="2.2" fill="none"/>
+              </svg>
+            {% endif %}
+          </p>
+        {% endif %}
+      </div>
+
+      <div class="right-image-wrapper"></div>
+    </div>
+
+    {% if section.settings.button_text != blank %}
+      <div class="lp-section8__cta">
+        <a href="{{ section.settings.button_link | default: '#' }}" class="lp-section8__btn">
+          {{ section.settings.button_text }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Landing Page Section 8",
+  "tag": "section",
+  "class": "section-landing-page-8",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Jeans image",
+      "info": "Back view cutout PNG (transparent background)"
+    },
+    {
+      "type": "header",
+      "content": "Right column copy"
+    },
+    {
+      "type": "text",
+      "id": "copy_small",
+      "label": "Small line",
+      "default": "Our first drop sold out faster than we expected."
+    },
+    {
+      "type": "textarea",
+      "id": "copy_large",
+      "label": "Brush heading",
+      "default": "THIS TIME, WE DIDN'T JUST BRING IT BACK – WE MADE IT BETTER."
+    },
+    {
+      "type": "text",
+      "id": "copy_accent",
+      "label": "Accent line",
+      "default": "UPGRADED FROM 13OZ TO 15OZ SELVEDGE DENIM,"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrow",
+      "label": "Show hand-drawn arrow",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Left column - below jeans"
+    },
+    {
+      "type": "textarea",
+      "id": "cta_text",
+      "label": "Body text",
+      "default": "But if you're looking for denim that holds up, breaks in, and tells your story over time"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Brushstroke banner image",
+      "info": "Optional — upload brushstroke graphic for exact match"
+    },
+    {
+      "type": "text",
+      "id": "cta_banner",
+      "label": "Brush banner text",
+      "default": "YOU'RE IN THE RIGHT PLACE."
+    },
+    {
+      "type": "header",
+      "content": "CTA button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "EXPLORE APPAREL"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#e6dfcf"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#8b3e2b"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Content max width",
+      "min": 960,
+      "max": 1400,
+      "step": 20,
+      "unit": "px",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Gap between columns",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "label": "Gap between text blocks",
+      "min": 8,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Spacing - Desktop"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "label": "Margin top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Spacing - Mobile"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Margin top",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Landing Page Section 8"
+    }
+  ]
+}
+{% endschema %}

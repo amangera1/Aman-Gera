@@ -1,0 +1,323 @@
+{{ 'blue-blood-common.css' | asset_url | stylesheet_tag }}
+{{ 'blue-blood-born-from-work.css' | asset_url | stylesheet_tag }}
+
+<style>
+  #shopify-section-{{ section.id }} .bb-born-from-work {
+    margin-top: {{ section.settings.margin_top_desktop }}px;
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    --bb-bg: {{ section.settings.background_color }};
+    --bb-accent: {{ section.settings.accent_color }};
+  }
+
+  #shopify-section-{{ section.id }} .bb-born-from-work__product-section {
+    gap: {{ section.settings.product_section_gap }}px;
+    margin-bottom: {{ section.settings.product_section_margin_bottom }}px;
+  }
+
+  @media screen and (max-width: 989px) {
+    #shopify-section-{{ section.id }} .bb-born-from-work {
+      margin-top: {{ section.settings.margin_top_mobile }}px;
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<section class="bb-section bb-born-from-work" id="bb-born-from-work-{{ section.id }}">
+  <div class="bb-paper-texture"></div>
+
+  <div class="bb-inner">
+    <div class="bb-born-from-work__header">
+      {% if section.settings.title != blank %}
+        <h2 class="bb-born-from-work__title bb-brush">{{ section.settings.title }}</h2>
+      {% endif %}
+      {% if section.settings.subtitle != blank %}
+        <p class="bb-born-from-work__subtitle bb-caps">{{ section.settings.subtitle }}</p>
+      {% endif %}
+    </div>
+
+    {% if section.settings.polaroid_1 != blank or section.settings.polaroid_2 != blank %}
+      <div class="bb-born-from-work__polaroids">
+        {% if section.settings.polaroid_1 != blank %}
+          <div class="bb-born-from-work__polaroid bb-born-from-work__polaroid--left">
+            <svg class="bb-born-from-work__paperclip" viewBox="0 0 28 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M8 4 C8 4, 22 8, 22 20 C22 32, 10 38, 10 38 C10 38, 18 34, 18 24 C18 14, 8 10, 8 10" stroke="#999" stroke-width="2.5" fill="none"/>
+            </svg>
+            <div class="bb-polaroid">
+              {{ section.settings.polaroid_1 | image_url: width: 700 | image_tag: loading: 'lazy', alt: 'Polaroid photo' }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if section.settings.polaroid_2 != blank %}
+          <div class="bb-born-from-work__polaroid bb-born-from-work__polaroid--right">
+            <svg class="bb-born-from-work__paperclip" viewBox="0 0 28 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M8 4 C8 4, 22 8, 22 20 C22 32, 10 38, 10 38 C10 38, 18 34, 18 24 C18 14, 8 10, 8 10" stroke="#999" stroke-width="2.5" fill="none"/>
+            </svg>
+            <div class="bb-polaroid">
+              {{ section.settings.polaroid_2 | image_url: width: 600 | image_tag: loading: 'lazy', alt: 'Polaroid photo' }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="bb-born-from-work__product-section">
+      {% if section.settings.product_image != blank %}
+        <div class="bb-born-from-work__jeans">
+          {{
+            section.settings.product_image
+            | image_url: width: 1000
+            | image_tag: loading: 'lazy', alt: 'Product'
+          }}
+        </div>
+      {% endif %}
+
+      <div class="bb-born-from-work__copy">
+        {% if section.settings.copy_small != blank %}
+          <p class="bb-born-from-work__copy-small">{{ section.settings.copy_small }}</p>
+        {% endif %}
+        {% if section.settings.copy_large != blank %}
+          <p class="bb-born-from-work__copy-large bb-brush">{{ section.settings.copy_large }}</p>
+        {% endif %}
+        {% if section.settings.copy_accent != blank %}
+          <p class="bb-born-from-work__copy-accent bb-brush">
+            {{ section.settings.copy_accent }}
+            <svg class="bb-born-from-work__arrow" viewBox="0 0 80 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2 30 C25 5, 50 35, 78 10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <path d="M70 4 L78 10 L72 18" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+          </p>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="bb-born-from-work__cta-section">
+      {% if section.settings.cta_text != blank %}
+        <p class="bb-born-from-work__cta-text">{{ section.settings.cta_text }}</p>
+      {% endif %}
+      {% if section.settings.cta_banner != blank %}
+        <div class="bb-born-from-work__cta-banner">
+          <div class="bb-brush-stroke">
+            <span>{{ section.settings.cta_banner }}</span>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blue Blood Born From Work",
+  "tag": "section",
+  "class": "section-blue-blood-born-from-work",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#e5e0d8"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#a33b20"
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "BORN FROM WORK"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "CARRIED FORWARD BY THOSE WHO VALUE IT"
+    },
+    {
+      "type": "header",
+      "content": "Polaroid images"
+    },
+    {
+      "type": "image_picker",
+      "id": "polaroid_1",
+      "label": "Polaroid image 1 (left, larger)"
+    },
+    {
+      "type": "image_picker",
+      "id": "polaroid_2",
+      "label": "Polaroid image 2 (right, smaller)"
+    },
+    {
+      "type": "header",
+      "content": "Product section"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product image (jeans back view)"
+    },
+    {
+      "type": "text",
+      "id": "copy_small",
+      "label": "Small copy",
+      "default": "Our first drop sold out faster than we expected."
+    },
+    {
+      "type": "text",
+      "id": "copy_large",
+      "label": "Large copy",
+      "default": "THIS TIME, WE DIDN'T JUST BRING IT BACK – WE MADE IT BETTER."
+    },
+    {
+      "type": "text",
+      "id": "copy_accent",
+      "label": "Accent copy with arrow",
+      "default": "UPGRADED FROM 13OZ TO 15OZ SELVEDGE DENIM,"
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA text",
+      "default": "But if you're looking for denim that holds up, breaks in, and tells your story over time"
+    },
+    {
+      "type": "text",
+      "id": "cta_banner",
+      "label": "CTA banner text",
+      "default": "YOU'RE IN THE RIGHT PLACE."
+    },
+    {
+      "type": "header",
+      "content": "Spacing — Desktop"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "label": "Section margin top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "label": "Section margin bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Section padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Section padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "product_section_gap",
+      "label": "Product section gap",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "product_section_margin_bottom",
+      "label": "Product section margin bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Spacing — Mobile"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Section margin top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "label": "Section margin bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Section padding top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Section padding bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blue Blood Born From Work"
+    }
+  ]
+}
+{% endschema %}

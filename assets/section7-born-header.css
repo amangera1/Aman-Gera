@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Permanent+Marker&display=swap');
+
+.lp-section7 {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--lp7-bg, #e5e0d8);
+  font-family: 'Montserrat', 'Jost', sans-serif;
+  color: #000;
+}
+
+.lp-section7__deco {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 220px 280px 0 0;
+  border-color: rgba(210, 195, 175, 0.45) transparent transparent transparent;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.lp-section7__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--lp7-max-width, 1200px);
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.lp-section7__header {
+  text-align: center;
+  padding-top: 48px;
+}
+
+.lp-section7__title-img {
+  display: block;
+  width: auto;
+  max-width: min(520px, 92vw);
+  height: auto;
+  margin: 0 auto;
+}
+
+.lp-section7__title {
+  margin: 0 0 10px;
+  font-family: 'Permanent Marker', cursive;
+  font-size: clamp(38px, 5.2vw, 62px);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  color: var(--lp7-accent, #a33b20);
+  transform: rotate(-1deg);
+}
+
+.lp-section7__subtitle {
+  margin: 0;
+  font-family: Permanent Marker, cursive;
+  font-size: clamp(11px, 1vw, 14px);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #000;
+  transform: rotate(358deg);
+  font-size: 20px;
+}
+
+.lp-section7__frame {
+  position: relative;
+  width: 100%;
+  margin-top: 36px;
+  line-height: 0;
+}
+
+.lp-section7__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center center;
+}
+
+.lp-section7__img--mobile {
+  display: none;
+}
+
+@media screen and (max-width: 749px) {
+  .lp-section7__inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .lp-section7__header {
+    padding-top: 36px;
+  }
+
+  .lp-section7__frame {
+    margin-top: 28px;
+  }
+
+  .lp-section7__img--desktop {
+    display: none;
+  }
+
+  .lp-section7__img--mobile {
+    display: block;
+  }
+
+  .lp-section7__title{
+    font-size: 24px !important;
+  }
+
+  .lp-section7__subtitle {
+    margin: 0;
+    font-family: Permanent Marker, cursive;
+    font-size: clamp(11px, 1vw, 14px);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #000;
+    transform: rotate(356deg);
+    font-size: 9px;
+  }
+}

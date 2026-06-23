@@ -1,0 +1,3 @@
+# Never sync homepage template — image uploads & section order live in Shopify customizer.
+# Local edits here overwrite remote and wipe uploaded images.
+templates/index.json
