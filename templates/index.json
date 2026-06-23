@@ -211,6 +211,31 @@
         "margin_top_mobile": 0,
         "margin_bottom_mobile": 0
       }
+    },
+    "section10_6CFtfw": {
+      "type": "Section10",
+      "name": "Landing Page Section 10",
+      "settings": {
+        "background_image": "shopify://shop_images/ChatGPT_Image_Jun_23_2026_10_31_29_PM_1.png",
+        "background_image_mobile": "shopify://shop_images/ChatGPT_Image_Jun_23_2026_10_31_29_PM_1.png",
+        "bg_fit": "contain",
+        "title": "DOUBLE KNEE CARPENTER",
+        "description": "<p><strong>Built for American carpenters</strong> in the early 20th century, this design was all about durability—extra panels, tool pockets, and zero tolerance for wear and tear.</p>",
+        "button_text": "SHOP NOW",
+        "button_link": "",
+        "content_width": 44,
+        "background_color": "#e6dfcf",
+        "accent_color": "#a33b20",
+        "max_width": 1200,
+        "min_height": 520,
+        "column_gap": 32,
+        "padding_top": 48,
+        "padding_bottom": 56,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
+      }
     }
   },
   "order": [
@@ -221,6 +246,7 @@
     "section6_Mm78Hn",
     "section7_tAMxNM",
     "section8_tFz8yR",
-    "section9_f399GP"
+    "section9_f399GP",
+    "section10_6CFtfw"
   ]
 }
