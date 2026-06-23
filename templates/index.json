@@ -178,6 +178,39 @@
         "margin_top_mobile": 0,
         "margin_bottom_mobile": 0
       }
+    },
+    "section9_f399GP": {
+      "type": "Section9",
+      "name": "Landing Page Section 9",
+      "settings": {
+        "background_image": "shopify://shop_images/ChatGPT_Image_Jun_23_2026_09_44_12_PM_1.png",
+        "background_image_mobile": "shopify://shop_images/ChatGPT_Image_Jun_23_2026_09_44_12_PM_1.png",
+        "bg_fit": "contain",
+        "title": "BLUE BLOOD 2.0 SLIM STRAIGHT",
+        "left_width": 48,
+        "description": "<p><strong>The original 5-pocket,</strong> refined over time as denim moved from workwear to everyday essential. The slim straight cut came later—cleaner, sharper, but still rooted in the same rugged DNA.</p>",
+        "button_text": "SHOP NOW",
+        "button_link": "",
+        "show_circle": true,
+        "circle_color": "#a33b20",
+        "circle_size": 360,
+        "circle_top": 50,
+        "circle_left": 38,
+        "circle_size_mobile": 280,
+        "circle_top_mobile": 50,
+        "circle_left_mobile": 50,
+        "background_color": "#e6dfcf",
+        "accent_color": "#a33b20",
+        "max_width": 1200,
+        "min_height": 560,
+        "column_gap": 24,
+        "padding_top": 48,
+        "padding_bottom": 56,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
+      }
     }
   },
   "order": [
@@ -187,6 +220,7 @@
     "section6_8NCAWf",
     "section6_Mm78Hn",
     "section7_tAMxNM",
-    "section8_tFz8yR"
+    "section8_tFz8yR",
+    "section9_f399GP"
   ]
 }
