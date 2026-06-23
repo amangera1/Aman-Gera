@@ -1,8 +1,22 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "landing_section_1": {
       "type": "Section1",
       "settings": {
+        "heading_image": "shopify://shop_images/Screenshot_2026-06-23_at_10.48.22_AM-removebg-preview.png",
+        "line_image": "shopify://shop_images/Screenshot_2026-06-23_at_10.48.44_AM-removebg-preview.png",
+        "subtitle_image": "shopify://shop_images/Screenshot_2026-06-23_at_10.51.17_AM-removebg-preview.png",
+        "badge_image": "shopify://shop_images/Screenshot_2026-06-23_at_10.48.57_AM-removebg-preview.png",
+        "hero_image": "shopify://shop_images/ChatGPT_Image_Jun_23_2026_11_54_12_AM.png",
         "body_text": "This is not denim made for first impressions. At 15oz, it holds its shape and breaks in over time - not overnight. The kind of denim that doesn't give up early. The kind that gets better the more you live in it.",
         "background_color": "#e5e0d8",
         "margin_top_desktop": 0,
@@ -26,19 +40,25 @@
         "card_1": {
           "type": "product_card",
           "settings": {
-            "label": "5 POCKET SLIM STRAIGHT"
+            "image": "shopify://shop_images/Screenshot_2026-06-23_at_12.02.28_PM.png",
+            "label": "5 POCKET SLIM STRAIGHT",
+            "link": ""
           }
         },
         "card_2": {
           "type": "product_card",
           "settings": {
-            "label": "5 POCKET TRUE STRAIGHT"
+            "image": "shopify://shop_images/Screenshot_2026-06-23_at_12.02.47_PM.png",
+            "label": "5 POCKET TRUE STRAIGHT",
+            "link": ""
           }
         },
         "card_3": {
           "type": "product_card",
           "settings": {
-            "label": "DOUBLE KNEE CARPENTER"
+            "image": "shopify://shop_images/Screenshot_2026-06-23_at_12.02.39_PM.png",
+            "label": "DOUBLE KNEE CARPENTER",
+            "link": ""
           }
         }
       },
@@ -69,9 +89,11 @@
     },
     "landing_section_3": {
       "type": "Section3",
+      "disabled": true,
       "settings": {
         "intro_text": "<p><strong>Born in the late 1800s,</strong> the 5-pocket jean was built for miners who needed something tougher than anything else they owned.</p>",
         "button_text": "SHOP NOW",
+        "button_link": "",
         "max_width": 1440,
         "text_top": 42,
         "text_left": 60,
@@ -92,7 +114,20 @@
     },
     "landing_section_5": {
       "type": "Section5",
-      "settings": {}
+      "settings": {
+        "image_left": "shopify://shop_images/Screenshot_2026-06-23_at_1.09.05_PM.png",
+        "image_right": "shopify://shop_images/Screenshot_2026-06-23_at_1.09.48_PM-removebg-preview.png",
+        "heading_image": "shopify://shop_images/Screenshot_2026-06-23_at_3.45.06_PM-removebg-preview.png",
+        "heading_line_1": "BUILT ON VINTAGE",
+        "heading_line_2": "TRADITIONAL SHUTTLE",
+        "heading_line_3": "LOOMS",
+        "show_arrow": false,
+        "heading_left": 25,
+        "heading_top": 8,
+        "grid_top": 200,
+        "overlap_left": -272,
+        "overlap_top": -100
+      }
     },
     "blue_blood_product_styles": {
       "type": "blue-blood-product-styles",
@@ -106,7 +141,8 @@
             "callout_2": "MID-RISE",
             "show_circle": true,
             "description": "<p><strong>The original 5-pocket,</strong> refined over time as denim moved from workwear to everyday essential. The slim straight cut came later—cleaner, sharper, but still rooted in the same rugged DNA.</p>",
-            "button_text": "SHOP NOW"
+            "button_text": "SHOP NOW",
+            "button_link": ""
           }
         },
         "carpenter": {
@@ -118,7 +154,8 @@
             "callout_2": "MID-RISE",
             "show_circle": false,
             "description": "<p><strong>Built for American carpenters</strong> in the early 20th century, this design was all about durability—extra panels, tool pockets, and zero tolerance for wear and tear.</p>",
-            "button_text": "SHOP NOW"
+            "button_text": "SHOP NOW",
+            "button_link": ""
           }
         }
       },
@@ -127,6 +164,8 @@
         "carpenter"
       ],
       "settings": {
+        "background_color": "#e5e0d8",
+        "accent_color": "#a33b20",
         "margin_top_desktop": 0,
         "margin_bottom_desktop": 0,
         "padding_top_desktop": 0,
@@ -137,14 +176,14 @@
         "margin_top_mobile": 0,
         "margin_bottom_mobile": 0,
         "padding_top_mobile": 0,
-        "padding_bottom_mobile": 40,
-        "background_color": "#e5e0d8",
-        "accent_color": "#a33b20"
+        "padding_bottom_mobile": 40
       }
     },
     "blue_blood_born_from_work": {
       "type": "blue-blood-born-from-work",
       "settings": {
+        "background_color": "#e5e0d8",
+        "accent_color": "#a33b20",
         "title": "BORN FROM WORK",
         "subtitle": "CARRIED FORWARD BY THOSE WHO VALUE IT",
         "copy_small": "Our first drop sold out faster than we expected.",
@@ -161,9 +200,7 @@
         "margin_top_mobile": 0,
         "margin_bottom_mobile": 0,
         "padding_top_mobile": 0,
-        "padding_bottom_mobile": 40,
-        "background_color": "#e5e0d8",
-        "accent_color": "#a33b20"
+        "padding_bottom_mobile": 40
       }
     }
   },
