@@ -129,78 +129,79 @@
         "overlap_top": -100
       }
     },
-    "blue_blood_product_styles": {
-      "type": "blue-blood-product-styles",
-      "blocks": {
-        "slim_straight": {
-          "type": "product_style",
-          "settings": {
-            "title": "BLUE BLOOD 2.0 SLIM STRAIGHT",
-            "image_position": "left",
-            "callout_1": "SLIM FIT",
-            "callout_2": "MID-RISE",
-            "show_circle": true,
-            "description": "<p><strong>The original 5-pocket,</strong> refined over time as denim moved from workwear to everyday essential. The slim straight cut came later—cleaner, sharper, but still rooted in the same rugged DNA.</p>",
-            "button_text": "SHOP NOW",
-            "button_link": ""
-          }
-        },
-        "carpenter": {
-          "type": "product_style",
-          "settings": {
-            "title": "DOUBLE KNEE CARPENTER",
-            "image_position": "right",
-            "callout_1": "DOUBLE KNEE FIT",
-            "callout_2": "MID-RISE",
-            "show_circle": false,
-            "description": "<p><strong>Built for American carpenters</strong> in the early 20th century, this design was all about durability—extra panels, tool pockets, and zero tolerance for wear and tear.</p>",
-            "button_text": "SHOP NOW",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "slim_straight",
-        "carpenter"
-      ],
+    "section6_8NCAWf": {
+      "type": "Section6",
+      "name": "Landing Page Section 6",
       "settings": {
+        "image_desktop": "shopify://shop_images/Screenshot_2026-06-23_at_4.45.18_PM.png",
+        "image_mobile": "shopify://shop_images/Screenshot_2026-06-23_at_4.45.18_PM.png",
+        "image_alt": "Blue Blood product styles",
+        "max_width": 1440,
         "background_color": "#e5e0d8",
-        "accent_color": "#a33b20",
         "margin_top_desktop": 0,
         "margin_bottom_desktop": 0,
-        "padding_top_desktop": 0,
-        "padding_bottom_desktop": 80,
-        "block_padding_top": 60,
-        "block_padding_bottom": 60,
-        "block_gap": 40,
         "margin_top_mobile": 0,
-        "margin_bottom_mobile": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 40
+        "margin_bottom_mobile": 0
       }
     },
-    "blue_blood_born_from_work": {
-      "type": "blue-blood-born-from-work",
+    "section6_Mm78Hn": {
+      "type": "Section6",
+      "name": "Landing Page Section 6",
       "settings": {
+        "image_desktop": "shopify://shop_images/Screenshot_2026-06-23_at_4.45.37_PM.png",
+        "image_mobile": "shopify://shop_images/Screenshot_2026-06-23_at_4.45.37_PM.png",
+        "image_alt": "Blue Blood product styles",
+        "max_width": 1440,
         "background_color": "#e5e0d8",
-        "accent_color": "#a33b20",
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
+      }
+    },
+    "section7_tAMxNM": {
+      "type": "Section7",
+      "name": "Landing Page Section 7",
+      "settings": {
         "title": "BORN FROM WORK",
         "subtitle": "CARRIED FORWARD BY THOSE WHO VALUE IT",
+        "image_desktop": "shopify://shop_images/Screenshot_2026-06-23_at_5.01.28_PM.png",
+        "image_mobile": "shopify://shop_images/Screenshot_2026-06-23_at_5.01.28_PM.png",
+        "image_alt": "Born from work polaroids",
+        "show_deco_triangle": true,
+        "background_color": "#e5e0d8",
+        "accent_color": "#a33b20",
+        "max_width": 1200,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0,
+        "padding_bottom_desktop": 0,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "section8_tFz8yR": {
+      "type": "Section8",
+      "name": "Landing Page Section 8",
+      "settings": {
+        "product_image": "shopify://shop_images/Screenshot_2026-06-23_at_5.22.29_PM-Photoroom-removebg-preview.png",
         "copy_small": "Our first drop sold out faster than we expected.",
         "copy_large": "THIS TIME, WE DIDN'T JUST BRING IT BACK – WE MADE IT BETTER.",
         "copy_accent": "UPGRADED FROM 13OZ TO 15OZ SELVEDGE DENIM,",
+        "show_arrow": false,
         "cta_text": "But if you're looking for denim that holds up, breaks in, and tells your story over time",
         "cta_banner": "YOU'RE IN THE RIGHT PLACE.",
+        "button_text": "EXPLORE APPAREL",
+        "button_link": "",
+        "background_color": "#e6dfcf",
+        "accent_color": "#8b3e2b",
+        "max_width": 1200,
+        "column_gap": 32,
+        "content_gap": 20,
         "margin_top_desktop": 0,
         "margin_bottom_desktop": 0,
-        "padding_top_desktop": 0,
-        "padding_bottom_desktop": 80,
-        "product_section_gap": 40,
-        "product_section_margin_bottom": 48,
         "margin_top_mobile": 0,
-        "margin_bottom_mobile": 0,
-        "padding_top_mobile": 0,
-        "padding_bottom_mobile": 40
+        "margin_bottom_mobile": 0
       }
     }
   },
@@ -209,7 +210,9 @@
     "landing_section_2",
     "landing_section_3",
     "landing_section_5",
-    "blue_blood_product_styles",
-    "blue_blood_born_from_work"
+    "section6_8NCAWf",
+    "section6_Mm78Hn",
+    "section7_tAMxNM",
+    "section8_tFz8yR"
   ]
 }
